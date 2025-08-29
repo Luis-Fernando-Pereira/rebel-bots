@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ky4x47eoyq2"]
+
+[ext_resource type="PackedScene" uid="uid://gas05qka3xty" path="res://app/scenes/ui/encaixe.tscn" id="1_73h7m"]
+[ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/item.tscn" id="2_e1qvs"]
+
+[node name="TelaComandos" type="Node2D"]
+
+[node name="Encaixe" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(288, 80)
+
+[node name="Encaixe2" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(432, 80)
+
+[node name="Encaixe3" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(576, 80)
+
+[node name="Encaixe4" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(720, 80)
+
+[node name="Encaixe5" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(288, 224)
+
+[node name="Encaixe6" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(432, 224)
+
+[node name="Encaixe7" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(576, 224)
+
+[node name="Encaixe8" parent="." instance=ExtResource("1_73h7m")]
+position = Vector2(720, 224)
+
+[node name="Item" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(896, 376)
+
+[node name="Item2" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(752, 376)
+
+[node name="Item3" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(472, 520)
+
+[node name="Item4" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(616, 520)
+
+[node name="Item5" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(176, 376)
+
+[node name="Item6" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(320, 376)
+
+[node name="Item7" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(464, 376)
+
+[node name="Item8" parent="." instance=ExtResource("2_e1qvs")]
+position = Vector2(608, 376)
