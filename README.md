@@ -50,7 +50,7 @@
 	│   ├── ui/
 	│   └── utils/
 	│
-	├── prefabs/               # "Cenas prontas" reutilizáveis (ex: botões, power-ups)
+	├── resource/               # "Cenas prontas" reutilizáveis (ex: botões, power-ups)
 	│
 	├── autoload/              # Scripts autoload/singletons (GameManager, AudioManager, etc.)
 	│

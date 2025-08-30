@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://7gnemla677je"]
+
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_1e0qe"]
+[ext_resource type="Texture2D" uid="uid://dt4dvbhiiutmf" path="res://app/assets/graphics/items/icon.svg" id="2_5ky1x"]
+
+[resource]
+script = ExtResource("1_1e0qe")
+comando = "MOVER_PARA_FRENTE"
+sprite = ExtResource("2_5ky1x")
+metadata/_custom_type_script = "uid://dsfujhsaybp18"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BlocoDeComando" load_steps=2 format=3 uid="uid://b2amfsrrgct3t"]
+
+[ext_resource type="Script" uid="uid://dfj8vi162q7j6" path="res://app/scripts/ui/comando.gd" id="1_i2lnw"]
+
+[resource]
+script = ExtResource("1_i2lnw")
+comando = "GIRAR_"
+metadata/_custom_type_script = "uid://dfj8vi162q7j6"
