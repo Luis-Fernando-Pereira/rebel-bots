@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6i6df"]
 size = Vector2(64, 64)
 
-[node name="Encaixe" type="StaticBody2D" groups=["dropable"]]
+[node name="Encaixe" type="StaticBody2D" groups=["soltavel"]]
 physics_material_override = SubResource("PhysicsMaterial_41n3q")
 script = ExtResource("1_rkfev")
 
