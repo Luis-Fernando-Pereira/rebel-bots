@@ -5,8 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unp24"]
 size = Vector2(127, 127)
 
-[node name="Encaixe" type="StaticBody2D" groups=["dropable"]]
-script = ExtResource("1_cxxk1")
+[node name="Encaixe" type="StaticBody2D" groups=["soltavel"]]
+physics_material_override = SubResource("PhysicsMaterial_41n3q")
+script = ExtResource("1_rkfev")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
