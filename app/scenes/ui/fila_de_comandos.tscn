@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjk31sa0ldjvu"]
+
+[ext_resource type="Script" uid="uid://dxksaplkqnu8x" path="res://app/scripts/ui/fila_de_comandos.gd" id="1_3bnen"]
+[ext_resource type="PackedScene" uid="uid://gas05qka3xty" path="res://app/scenes/ui/encaixe.tscn" id="2_nn7da"]
+
+[node name="FilaDeComandos" type="Node2D"]
+script = ExtResource("1_3bnen")
+
+[node name="Encaixe" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(32, 32)
+
+[node name="Encaixe2" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(176, 32)
+
+[node name="Encaixe3" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(320, 32)
+
+[node name="Encaixe4" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(464, 32)
+
+[node name="Encaixe5" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(32, 176)
+
+[node name="Encaixe6" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(176, 176)
+
+[node name="Encaixe7" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(320, 176)
+
+[node name="Encaixe8" parent="." instance=ExtResource("2_nn7da")]
+position = Vector2(464, 176)

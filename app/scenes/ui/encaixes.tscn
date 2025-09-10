@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cksuxgy85au2r"]
+
+[ext_resource type="Script" uid="uid://dco2echj42t7u" path="res://app/scripts/ui/encaixes.gd" id="1_yhw12"]
+[ext_resource type="PackedScene" uid="uid://gas05qka3xty" path="res://app/scenes/ui/encaixe.tscn" id="2_r3k5j"]
+
+[node name="Encaxes" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yhw12")
+
+[node name="Encaixe" parent="." instance=ExtResource("2_r3k5j")]
+encaixe = 1
+
+[node name="Encaixe2" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(112, 0)
+encaixe = 2
+
+[node name="Encaixe3" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(224, 0)
+encaixe = 3
+
+[node name="Encaixe4" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(336, 0)
+encaixe = 4
+
+[node name="Encaixe5" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(0, 112)
+encaixe = 5
+
+[node name="Encaixe6" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(112, 112)
+encaixe = 6
+
+[node name="Encaixe7" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(224, 112)
+encaixe = 7
+
+[node name="Encaixe8" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(336, 112)
+encaixe = 8
+
+[connection signal="comando_encaixado" from="Encaixe" to="." method="_on_encaixe_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe2" to="." method="_on_encaixe_2_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe3" to="." method="_on_encaixe_3_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe4" to="." method="_on_encaixe_4_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe5" to="." method="_on_encaixe_5_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe6" to="." method="_on_encaixe_6_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe7" to="." method="_on_encaixe_7_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe8" to="." method="_on_encaixe_7_comando_encaixado"]

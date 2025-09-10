@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://btehid6vqd1sx"]
+
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_800kv"]
+[ext_resource type="Texture2D" uid="uid://bnc5i6c56rj3x" path="res://app/assets/graphics/characters/ballbot/3/ballorange1.png" id="2_sbjns"]
+
+[resource]
+script = ExtResource("1_800kv")
+comando = 1
+texture = ExtResource("2_sbjns")
+metadata/_custom_type_script = "uid://dsfujhsaybp18"

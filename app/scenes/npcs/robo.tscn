@@ -1,14 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://d12u4jiukcyn7"]
+[gd_scene load_steps=7 format=3 uid="uid://4mwy5eq50v75"]
 
-[ext_resource type="Script" uid="uid://br53py8ktf852" path="res://app/scenes/npcs/robo.gd" id="1_ev34g"]
-[ext_resource type="Texture2D" uid="uid://cc8k1pkpk5jg3" path="res://app/assets/graphics/characters/ballbot/1/ballred1.png" id="2_21535"]
-[ext_resource type="Texture2D" uid="uid://ninscy88da73" path="res://app/assets/graphics/characters/ballbot/1/ballred2.png" id="3_07dra"]
-[ext_resource type="Texture2D" uid="uid://csamlldp1qw72" path="res://app/assets/graphics/characters/ballbot/1/ballred3.png" id="4_neyy8"]
-[ext_resource type="Texture2D" uid="uid://cx8qya1gr2h6p" path="res://app/assets/graphics/characters/ballbot/1/ballred4.png" id="5_6nef6"]
+[ext_resource type="Texture2D" uid="uid://cc8k1pkpk5jg3" path="res://app/assets/graphics/characters/ballbot/1/ballred1.png" id="1_58cge"]
+[ext_resource type="Texture2D" uid="uid://ninscy88da73" path="res://app/assets/graphics/characters/ballbot/1/ballred2.png" id="2_21535"]
+[ext_resource type="Texture2D" uid="uid://csamlldp1qw72" path="res://app/assets/graphics/characters/ballbot/1/ballred3.png" id="3_07dra"]
+[ext_resource type="Texture2D" uid="uid://cx8qya1gr2h6p" path="res://app/assets/graphics/characters/ballbot/1/ballred4.png" id="4_neyy8"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ev34g"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb760"]
+radius = 16.0
+height = 40.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nef6"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_58cge")
+}, {
 "duration": 1.0,
 "texture": ExtResource("2_21535")
 }, {
@@ -17,9 +23,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_neyy8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_6nef6")
 }],
 "loop": true,
 "name": &"default",
@@ -27,11 +30,9 @@ animations = [{
 }]
 
 [node name="Robo" type="CharacterBody2D"]
-script = ExtResource("1_ev34g")
 
-[node name="ColisaoRobo" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-16, -16, -8, -24, 8, -24, 16, -16, 16, 8, 8, 16, 0, 16, -8, 16, -16, 8)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qb760")
 
-[node name="SpriteRoboBallBot" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ev34g")
-frame_progress = 0.881754
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6nef6")

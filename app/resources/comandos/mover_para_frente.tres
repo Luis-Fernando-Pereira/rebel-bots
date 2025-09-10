@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://fkt276hdhsc"]
+
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_8gvap"]
+[ext_resource type="Texture2D" uid="uid://cc8k1pkpk5jg3" path="res://app/assets/graphics/characters/ballbot/1/ballred1.png" id="2_bhlyo"]
+
+[resource]
+script = ExtResource("1_8gvap")
+nome = "Mover para frente"
+tipo = null
+textura = ExtResource("2_bhlyo")
+condicao = null
+repetir = null
+rotacionar = 0
+metadata/_custom_type_script = "uid://dsfujhsaybp18"

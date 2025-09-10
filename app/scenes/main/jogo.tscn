@@ -7,3 +7,4 @@
 script = ExtResource("1_ngsvm")
 
 [node name="Jogador" parent="." instance=ExtResource("2_qj4o5")]
+position = Vector2(226, 214)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgfsfbdgicquw"]
+
+[ext_resource type="Script" uid="uid://bnliwk6u8tm63" path="res://app/scripts/ui/comando.gd" id="1_tccx2"]
+[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="2_74ti2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tccx2"]
+size = Vector2(32, 32)
+
+[node name="Comando" type="Node2D"]
+script = ExtResource("1_tccx2")
+comando = ExtResource("2_74ti2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AreaDoComando" type="Area2D" parent="." groups=["comando"]]
+
+[node name="CaixaDeColisao" type="CollisionShape2D" parent="AreaDoComando"]
+shape = SubResource("RectangleShape2D_tccx2")
+
+[connection signal="body_entered" from="AreaDoComando" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AreaDoComando" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="AreaDoComando" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="AreaDoComando" to="." method="_on_area_2d_mouse_exited"]
