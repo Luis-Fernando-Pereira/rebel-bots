@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://db0c0p72418tq"]
+[gd_scene load_steps=3 format=3 uid="uid://db0c0p72418tq"]
 
 [ext_resource type="Script" uid="uid://vob3n4s6uaxl" path="res://app/scripts/player/jogador.gd" id="1_w40sf"]
-[ext_resource type="PackedScene" uid="uid://cksuxgy85au2r" path="res://app/scenes/ui/encaixes.tscn" id="3_iel3j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_25sla"]
 
@@ -13,9 +12,3 @@ position = Vector2(402.895, 238.019)
 rotation = 3.14159
 scale = Vector2(804.791, -477.038)
 texture = SubResource("CanvasTexture_25sla")
-
-[node name="Encaixes" parent="." instance=ExtResource("3_iel3j")]
-offset_left = 400.0
-offset_top = 100.0
-offset_right = 400.0
-offset_bottom = 100.0

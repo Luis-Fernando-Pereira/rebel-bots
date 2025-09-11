@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://4mwy5eq50v75"]
+[gd_scene load_steps=9 format=3 uid="uid://4mwy5eq50v75"]
 
+[ext_resource type="Script" uid="uid://bocccsodqkbp2" path="res://app/scripts/npcs/robo.gd" id="1_07dra"]
 [ext_resource type="Texture2D" uid="uid://cc8k1pkpk5jg3" path="res://app/assets/graphics/characters/ballbot/1/ballred1.png" id="1_58cge"]
 [ext_resource type="Texture2D" uid="uid://ninscy88da73" path="res://app/assets/graphics/characters/ballbot/1/ballred2.png" id="2_21535"]
 [ext_resource type="Texture2D" uid="uid://csamlldp1qw72" path="res://app/assets/graphics/characters/ballbot/1/ballred3.png" id="3_07dra"]
 [ext_resource type="Texture2D" uid="uid://cx8qya1gr2h6p" path="res://app/assets/graphics/characters/ballbot/1/ballred4.png" id="4_neyy8"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb760"]
-radius = 16.0
-height = 40.0
+[ext_resource type="PackedScene" uid="uid://cksuxgy85au2r" path="res://app/scenes/ui/encaixes.tscn" id="5_21535"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6nef6"]
 animations = [{
@@ -29,10 +27,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb760"]
+radius = 16.0
+height = 40.0
+
 [node name="Robo" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_07dra")
+
+[node name="Encaxes" parent="." instance=ExtResource("5_21535")]
+visible = false
+layout_direction = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6nef6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qb760")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6nef6")
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="lista_de_comandos_alterado" from="Encaxes" to="." method="_on_encaxes_lista_de_comandos_alterado"]

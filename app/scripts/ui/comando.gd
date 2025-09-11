@@ -10,6 +10,7 @@ var pos_nicial: Vector2
 var esta_dentro_de_soltavel = false
 var ref_corpo: Node2D
 var corpos_dentro = []
+var z_index_original = z_index
 
 func _ready():
 	if comando != null: 
@@ -29,13 +30,10 @@ func _process(_delta):
 		elif Input.is_action_just_released("click"):
 			Global.esta_arrastando = false
 			
-			var tween = self.create_tween()
+			position = pos_nicial
+			
 			if esta_dentro_de_soltavel:
-				tween.tween_property(self, "position", ref_corpo.position + ref_corpo.get_parent().position, 0.2).set_ease(Tween.EASE_OUT)
 				encaixar_comando()
-				
-			else:
-				tween.tween_property(self, "global_position", pos_nicial, 0.2).set_ease(Tween.EASE_OUT)	
 
 func encaixar_comando():
 	comando_encaixado.emit(comando)
@@ -44,12 +42,13 @@ func _on_area_2d_mouse_entered() -> void:
 	if not Global.esta_arrastando:
 		arrastavel = true
 		scale = Vector2(1.05, 1.05)
-
+		z_index = 4
 
 func _on_area_2d_mouse_exited() -> void:
 	if not Global.esta_arrastando:
 		arrastavel = false
 		scale = Vector2(1,1)
+		self.z_index = z_index_original
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body not in corpos_dentro:

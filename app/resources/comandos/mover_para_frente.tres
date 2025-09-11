@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_8gvap")
 nome = "Mover para frente"
-tipo = null
+tipo = 0
 textura = ExtResource("2_bhlyo")
-condicao = null
-repetir = null
+condicao = 0
+repetir = 4
 rotacionar = 0
 metadata/_custom_type_script = "uid://dsfujhsaybp18"

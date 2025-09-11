@@ -4,9 +4,35 @@
 [ext_resource type="PackedScene" uid="uid://gas05qka3xty" path="res://app/scenes/ui/encaixe.tscn" id="2_r3k5j"]
 
 [node name="Encaxes" type="Control"]
+layout_direction = 1
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -808.0
+offset_top = -416.0
+offset_right = -808.0
+offset_bottom = -416.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yhw12")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 168.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = -56.0
+offset_right = 394.0
+offset_bottom = -25.0
+text = "X"
 
 [node name="Encaixe" parent="." instance=ExtResource("2_r3k5j")]
 encaixe = 1
@@ -39,6 +65,7 @@ encaixe = 7
 position = Vector2(336, 112)
 encaixe = 8
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="comando_encaixado" from="Encaixe" to="." method="_on_encaixe_comando_encaixado"]
 [connection signal="comando_encaixado" from="Encaixe2" to="." method="_on_encaixe_2_comando_encaixado"]
 [connection signal="comando_encaixado" from="Encaixe3" to="." method="_on_encaixe_3_comando_encaixado"]
