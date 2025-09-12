@@ -1,48 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://db0c0p72418tq"]
+[gd_scene load_steps=3 format=3 uid="uid://db0c0p72418tq"]
 
-[ext_resource type="PackedScene" uid="uid://sn3mwmb5ue5d" path="res://app/scenes/ui/encaixe.tscn" id="1_b780r"]
 [ext_resource type="Script" uid="uid://vob3n4s6uaxl" path="res://app/scripts/player/jogador.gd" id="1_w40sf"]
-[ext_resource type="PackedScene" uid="uid://dhh26r0svjuba" path="res://app/scenes/ui/item.tscn" id="2_y26ww"]
-[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="4_vg8tv"]
-[ext_resource type="Texture2D" uid="uid://bnc5i6c56rj3x" path="res://app/assets/graphics/characters/ballbot/3/ballorange1.png" id="6_wet3o"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_25sla"]
-
-[sub_resource type="Resource" id="Resource_25sla"]
-script = ExtResource("4_vg8tv")
-comando = 0
-metadata/_custom_type_script = "uid://dsfujhsaybp18"
-
-[sub_resource type="Resource" id="Resource_5kfv4"]
-script = ExtResource("4_vg8tv")
-comando = 1
-sprite = ExtResource("6_wet3o")
-metadata/_custom_type_script = "uid://dsfujhsaybp18"
 
 [node name="Jogador" type="Node2D"]
 script = ExtResource("1_w40sf")
 
 [node name="Visor" type="Sprite2D" parent="."]
 position = Vector2(402.895, 238.019)
-scale = Vector2(-804.791, 477.038)
+rotation = 3.14159
+scale = Vector2(804.791, -477.038)
 texture = SubResource("CanvasTexture_25sla")
-
-[node name="Encaixe" parent="." instance=ExtResource("1_b780r")]
-position = Vector2(56, 59)
-encaixe = 1
-
-[node name="Encaixe2" parent="." instance=ExtResource("1_b780r")]
-position = Vector2(148, 62)
-encaixe = 2
-
-[node name="Item" parent="." instance=ExtResource("2_y26ww")]
-position = Vector2(156, 188)
-comando = SubResource("Resource_25sla")
-
-[node name="Item2" parent="." instance=ExtResource("2_y26ww")]
-position = Vector2(330, 187)
-comando = SubResource("Resource_5kfv4")
-
-[connection signal="instrucao_emitida" from="Encaixe" to="." method="_on_encaixe_instrucao_emitida"]
-[connection signal="comando_emitido" from="Item" to="Encaixe" method="_on_item_comando_emitido"]
-[connection signal="comando_emitido" from="Item2" to="." method="_on_item_comando_emitido"]

@@ -1,12 +1,18 @@
 extends Node
 
-var is_dragging = false
+#Vector2(1, 0) → indo totalmente para a direita
+#Vector2(-1, 0) → indo totalmente para a esquerda
+#Vector2(0, -1) → indo totalmente para cima
+#Vector2(0, 1) → indo totalmente para baixo
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var esta_arrastando = false
+enum Comandos{MOVER_PARA_FRENTE,VIRAR}
+const unidade_de_movimento = 96
+var play = false
 
+enum Estado {IDLE, EXECUTANDO, FINALIZADO}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+const direita := Vector2.RIGHT
+const esquerda = Vector2.LEFT
+const cima = Vector2.UP
+const baixo = Vector2.DOWN

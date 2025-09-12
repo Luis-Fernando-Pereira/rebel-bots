@@ -46,6 +46,7 @@
 	│
 	├── scripts/               # Scripts GDScript ou C#
 	│   ├── player/
+	│   ├── resource/
 	│   ├── enemies/
 	│   ├── ui/
 	│   └── utils/

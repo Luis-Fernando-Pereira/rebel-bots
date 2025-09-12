@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://oey0pnns4bny"]
+
+[ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="1_cwt67"]
+[ext_resource type="Script" uid="uid://3v58di7xwqli" path="res://app/scripts/ui/lista_de_comandos.gd" id="1_xe5h0"]
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="2_i85bc"]
+[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="2_xe5h0"]
+[ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="3_i85bc"]
+
+[node name="ListaDeComandos" type="Node2D"]
+script = ExtResource("1_xe5h0")
+lista_de_comandos = Array[ExtResource("2_i85bc")]([ExtResource("2_xe5h0"), ExtResource("3_i85bc")])
+
+[node name="MoverParaFrente" parent="." instance=ExtResource("1_cwt67")]
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 64.0
+offset_bottom = 65.0
+comando = ExtResource("2_xe5h0")
+
+[node name="Virar" parent="." instance=ExtResource("1_cwt67")]
+offset_left = 64.0
+offset_top = 225.0
+offset_right = 64.0
+offset_bottom = 225.0
+comando = ExtResource("3_i85bc")

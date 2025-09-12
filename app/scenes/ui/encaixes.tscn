@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://cksuxgy85au2r"]
+
+[ext_resource type="Script" uid="uid://dco2echj42t7u" path="res://app/scripts/ui/encaixes.gd" id="1_yhw12"]
+[ext_resource type="PackedScene" uid="uid://gas05qka3xty" path="res://app/scenes/ui/encaixe.tscn" id="2_r3k5j"]
+
+[node name="Encaxes" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -808.0
+offset_top = -416.0
+offset_right = -808.0
+offset_bottom = -416.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yhw12")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 168.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = -56.0
+offset_right = 394.0
+offset_bottom = -25.0
+text = "X"
+
+[node name="Encaixe" parent="." instance=ExtResource("2_r3k5j")]
+encaixe = 1
+
+[node name="Encaixe2" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(112, 0)
+encaixe = 2
+
+[node name="Encaixe3" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(224, 0)
+encaixe = 3
+
+[node name="Encaixe4" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(336, 0)
+encaixe = 4
+
+[node name="Encaixe5" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(0, 112)
+encaixe = 5
+
+[node name="Encaixe6" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(112, 112)
+encaixe = 6
+
+[node name="Encaixe7" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(224, 112)
+encaixe = 7
+
+[node name="Encaixe8" parent="." instance=ExtResource("2_r3k5j")]
+position = Vector2(336, 112)
+encaixe = 8
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="comando_encaixado" from="Encaixe" to="." method="_on_encaixe_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe2" to="." method="_on_encaixe_2_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe3" to="." method="_on_encaixe_3_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe4" to="." method="_on_encaixe_4_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe5" to="." method="_on_encaixe_5_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe6" to="." method="_on_encaixe_6_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe7" to="." method="_on_encaixe_7_comando_encaixado"]
+[connection signal="comando_encaixado" from="Encaixe8" to="." method="_on_encaixe_7_comando_encaixado"]

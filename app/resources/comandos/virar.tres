@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://btehid6vqd1sx"]
+
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_800kv"]
+[ext_resource type="Texture2D" uid="uid://dt4dvbhiiutmf" path="res://app/assets/graphics/items/icon.svg" id="2_w5f3h"]
+
+[resource]
+script = ExtResource("1_800kv")
+nome = "Virar"
+tipo = 1
+textura = ExtResource("2_w5f3h")
+condicao = 0
+repetir = 1
+rotacionar = -95
+metadata/_custom_type_script = "uid://dsfujhsaybp18"

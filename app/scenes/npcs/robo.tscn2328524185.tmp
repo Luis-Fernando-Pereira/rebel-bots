@@ -36,6 +36,7 @@ size = Vector2(56, 58)
 
 [node name="Robo" type="Area2D"]
 script = ExtResource("1_07dra")
+velocidade = null
 
 [node name="Encaxes" parent="." instance=ExtResource("5_21535")]
 visible = false

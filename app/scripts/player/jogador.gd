@@ -1,19 +1,23 @@
 extends Node2D
 
-var comandos = {}
+var is_open = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("i"):
+		if is_open:
+			fechar()
+		else:
+			abrir()
+
+func abrir():
+	visible = true
+	is_open = true
+
+func fechar():
+	visible = false
+	is_open = false
+
+func _on_encaixes_comando_encaixado(encaixe: int, comando: Comando) -> void:
 	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
-	pass
-
-func _on_body_entered(body: Node2D) -> void:
-	pass
-
-
-func _on_encaixe_instrucao_emitida(instrucao: Instrucao) -> void:
-	print(instrucao.comando.comando, instrucao.encaixe)
