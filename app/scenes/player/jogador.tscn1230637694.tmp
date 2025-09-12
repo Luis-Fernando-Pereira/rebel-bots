@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://db0c0p72418tq"]
+
+[ext_resource type="PackedScene" uid="uid://gas05qka3xty" path="res://app/scenes/ui/encaixe.tscn" id="1_b780r"]
+[ext_resource type="Script" uid="uid://vob3n4s6uaxl" path="res://app/scripts/player/jogador.gd" id="1_w40sf"]
+[ext_resource type="Resource" uid="uid://ccs2vrg8hkmij" path="res://app/resources/fila_de_comandos_robo.tres" id="2_vg8tv"]
+[ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/item.tscn" id="2_y26ww"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_25sla"]
+
+[node name="Jogador" type="Node2D"]
+script = ExtResource("1_w40sf")
+fila_de_comandos = ExtResource("2_vg8tv")
+
+[node name="Visor" type="Sprite2D" parent="."]
+position = Vector2(402.895, 238.019)
+scale = Vector2(-804.791, 477.038)
+texture = SubResource("CanvasTexture_25sla")
+
+[node name="Encaixe" parent="." instance=ExtResource("1_b780r")]
+position = Vector2(56, 59)
+encaixe = 1
+
+[node name="Encaixe2" parent="." instance=ExtResource("1_b780r")]
+position = Vector2(148, 62)
+encaixe = 2
+
+[node name="Item" parent="." instance=ExtResource("2_y26ww")]
+position = Vector2(156, 188)
+
+[node name="Item2" parent="." instance=ExtResource("2_y26ww")]
+position = Vector2(330, 187)
