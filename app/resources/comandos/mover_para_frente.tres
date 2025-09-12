@@ -9,6 +9,6 @@ nome = "Mover para frente"
 tipo = 0
 textura = ExtResource("2_bhlyo")
 condicao = 0
-repetir = 4
+repetir = 6
 rotacionar = 0
 metadata/_custom_type_script = "uid://dsfujhsaybp18"

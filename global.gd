@@ -10,7 +10,7 @@ enum Comandos{MOVER_PARA_FRENTE,VIRAR}
 const unidade_de_movimento = 96
 var play = false
 
-enum Estudo {IDLE, EXECUTANDO, FINALIZADO}
+enum Estado {IDLE, EXECUTANDO, FINALIZADO}
 
 const direita := Vector2.RIGHT
 const esquerda = Vector2.LEFT
