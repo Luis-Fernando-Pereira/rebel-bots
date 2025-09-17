@@ -12,7 +12,7 @@ class_name Comando
 # Laço de repetição opcional
 @export var repetir: int = 1  # 1 = executar uma vez
 
-@export var rotacionar: int = 0
+@export var direcao: Global.Direcoes 
 
 var obstaculo_a_frente: bool = false
 
@@ -26,8 +26,6 @@ enum TipoComando {
 	PEGAR,
 	LARGAR
 }
-
-var direcao : Vector2
 
 #Condição em que uma ação será executada
 enum Condicao {
