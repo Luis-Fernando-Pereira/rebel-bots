@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp1qi05foya7k"]
+[gd_scene load_steps=7 format=3 uid="uid://cp1qi05foya7k"]
 
 [ext_resource type="Script" uid="uid://bnpwscs32b61o" path="res://app/scenes/main/jogo.gd" id="1_ngsvm"]
 [ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="3_ap7gv"]
@@ -6,11 +6,19 @@
 [ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="4_jthng"]
 [ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="5_l83ql"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jthng"]
+
 [node name="Jogo" type="Node2D"]
 script = ExtResource("1_ngsvm")
 
 [node name="Robo" parent="." instance=ExtResource("3_ap7gv")]
 position = Vector2(312, 374)
+
+[node name="AreaDeInteracao" type="Area2D" parent="Robo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Robo/AreaDeInteracao"]
+position = Vector2(46, 2)
+shape = SubResource("RectangleShape2D_jthng")
 
 [node name="Comando" parent="." instance=ExtResource("3_ngsvm")]
 position = Vector2(642, 140)
@@ -19,3 +27,6 @@ comando = ExtResource("4_jthng")
 [node name="Comando2" parent="." instance=ExtResource("3_ngsvm")]
 position = Vector2(407, 144)
 comando = ExtResource("5_l83ql")
+
+[connection signal="area_entered" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_entered"]
+[connection signal="area_exited" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_exited"]

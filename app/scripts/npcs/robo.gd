@@ -16,6 +16,8 @@ var rotacao: float = 0
 var direcao:= Vector2.RIGHT
 @export var velocidade := 200.0
 var estado := Global.Estado.IDLE
+var objetos_proximos: Array[Area2D] = []
+var objeto_carregado: Area2D = null
 
 
 func _ready() -> void:
@@ -110,11 +112,39 @@ func virar():
 
 
 func pegar():
-	pass
+	if objeto_carregado == null and not objetos_proximos.is_empty():
+		var objeto_a_pegar = objetos_proximos[0]
+		
+		if objeto_a_pegar.is_in_group("pegavel"):
+			print("Pegando o objeto: ", objeto_a_pegar.name)
+			
+			objeto_carregado = objeto_a_pegar
+			
+			objeto_carregado.get_parent().remove_child(objeto_carregado)
+			self.add_child(objeto_carregado)
+			
+			objeto_carregado.position = Vector2(60, 0)
+			
+			objeto_carregado.esta_sendo_carregado = true
+			
 
 
 func largar():
-	pass
+	if objeto_carregado != null:
+		print("Largando o objeto: ", objeto_carregado.name)
+		
+		var objeto_a_largar = objeto_carregado
+		var cena_principal = get_tree().current_scene
+		
+		self.remove_child(objeto_a_largar)
+		
+		cena_principal.add_child(objeto_a_largar)
+		
+		objeto_a_largar.global_position = self.global_position + direcao.normalized() * 80
+		
+		objeto_a_largar.esta_sendo_carregado = false
+		
+		objeto_carregado = null
 
 
 func condicao_valida(valor: bool) -> void:
@@ -148,3 +178,15 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
 	pass
 		
+
+
+func _on_area_de_interacao_area_entered(area: Area2D) -> void:
+	if area.is_in_group("pegavel") and not area in objetos_proximos:
+		objetos_proximos.append(area)
+		print("Objeto pegavel detectado: ", area.name)
+		
+
+func _on_area_de_interacao_area_exited(area: Area2D) -> void:
+	if area in objetos_proximos:
+		objetos_proximos.erase(area)
+		print("Objeto pegavel saiu de alcance: ", area.name)
