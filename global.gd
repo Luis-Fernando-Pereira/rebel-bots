@@ -18,3 +18,4 @@ const direita := Vector2.RIGHT
 const esquerda = Vector2.LEFT
 const cima = Vector2.UP
 const baixo = Vector2.DOWN
+const parar = Vector2.ZERO

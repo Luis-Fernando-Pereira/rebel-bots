@@ -33,7 +33,7 @@ enum Condicao {
 	OBSTACULO_A_FRENTE
 }
 
-func _init(_nome: String = "", _tipo: int = TipoComando.MOVER_PARA_FRENTE, _textura: Texture2D = null, _condicao: Condicao = Condicao.NENHUMA, _repetir: int = 1):
+func _init(_nome: String = "", _tipo: TipoComando = TipoComando.MOVER_PARA_FRENTE, _textura: Texture2D = null, _condicao: Condicao = Condicao.NENHUMA, _repetir: int = 1):
 	nome = _nome
 	tipo = _tipo
 	textura = _textura
