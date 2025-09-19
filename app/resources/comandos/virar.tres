@@ -10,5 +10,5 @@ tipo = 1
 textura = ExtResource("2_w5f3h")
 condicao = 0
 repetir = 1
-rotacionar = -95
+direcao = 3
 metadata/_custom_type_script = "uid://dsfujhsaybp18"
