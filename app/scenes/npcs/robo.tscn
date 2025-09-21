@@ -47,6 +47,7 @@ offset_bottom = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6nef6")
+frame_progress = 0.290054
 
 [node name="ColisaoCorpoRobo" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qb760")
