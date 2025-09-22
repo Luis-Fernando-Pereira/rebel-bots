@@ -22,7 +22,8 @@ func _process(_delta: float) -> void:
 		comando_temp = null
 		$Sprite2D.texture = comando.textura
 		$Sprite2D.z_index += 1
-		comando_encaixado.emit(encaixe, comando)
+		var copia_comando = comando.duplicar()
+		comando_encaixado.emit(encaixe, copia_comando)
 		$ColorRect.color = Color.TRANSPARENT
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

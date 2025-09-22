@@ -2,17 +2,54 @@ extends Resource
 class_name Comando
 
 # Permite exportar no editor
-@export var nome: String
-@export var tipo: TipoComando = TipoComando.MOVER_PARA_FRENTE
-@export var textura: Texture2D
+@export var _nome: String
+
+var nome: String:
+	get:
+		return _nome
+	set(valor):
+		_nome = valor
+
+@export var _tipo: TipoComando = TipoComando.MOVER_PARA_FRENTE
+var tipo: TipoComando:
+	get:
+		return _tipo
+	set(valor):
+		_tipo = valor 
+
+@export var _textura: Texture2D
+var textura: Texture2D:
+	get:
+		return _textura
+	set(valor):
+		_textura = valor
 
 # Condição opcional (pode ser script ou string para simplificação)
-@export var condicao: Condicao
+@export var _condicao: Condicao
+var condicao: Condicao:
+	get:
+		return _condicao
+	set(valor):
+		_condicao = valor
 
 # Laço de repetição opcional
-@export var repetir: int = 1  # 1 = executar uma vez
+@export var _repetir: int = 1  # 1 = executar uma vez
+var repetir: int:
+	get:
+		return _repetir
+	set(valor):
+		_repetir = valor
 
-@export var direcao: Global.Direcoes 
+@export var _direcao: Global.Direcoes 
+var direcao: Global.Direcoes:
+	get:
+		return _direcao
+	set(valor):
+		if valor:
+			_direcao = valor
+		else:
+			_direcao = Global.Direcoes.DIREITA 
+
 
 var obstaculo_a_frente: bool = false
 
@@ -39,3 +76,18 @@ func _init(_nome: String = "", _tipo: TipoComando = TipoComando.MOVER_PARA_FRENT
 	textura = _textura
 	condicao = _condicao
 	repetir = _repetir
+
+
+func duplicar() -> Comando:
+	var novo = Comando.new(
+		_nome,
+		_tipo,
+		_textura,
+		_condicao,
+		_repetir
+	)
+	novo.direcao = direcao
+	novo.obstaculo_a_frente = obstaculo_a_frente
+	novo.executar_se_condicao_verdadeira = executar_se_condicao_verdadeira
+	novo.executar_se_condicao_falsa = executar_se_condicao_falsa
+	return novo
