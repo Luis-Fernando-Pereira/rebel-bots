@@ -7,12 +7,15 @@ extends Node
 
 var esta_arrastando = false
 enum Comandos{MOVER_PARA_FRENTE,VIRAR}
-const unidade_de_movimento = 96
+const unidade_de_movimento = 50
 var play = false
 
 enum Estado {IDLE, EXECUTANDO, FINALIZADO}
+
+enum Direcoes{ESQUERDA, DIREITA, CIMA, BAIXO}
 
 const direita := Vector2.RIGHT
 const esquerda = Vector2.LEFT
 const cima = Vector2.UP
 const baixo = Vector2.DOWN
+const parar = Vector2.ZERO

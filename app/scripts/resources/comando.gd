@@ -12,7 +12,7 @@ class_name Comando
 # Laço de repetição opcional
 @export var repetir: int = 1  # 1 = executar uma vez
 
-@export var rotacionar: int = 0
+@export var direcao: Global.Direcoes 
 
 var obstaculo_a_frente: bool = false
 
@@ -27,15 +27,13 @@ enum TipoComando {
 	LARGAR
 }
 
-var direcao : Vector2
-
 #Condição em que uma ação será executada
 enum Condicao {
 	NENHUMA,
 	OBSTACULO_A_FRENTE
 }
 
-func _init(_nome: String = "", _tipo: int = TipoComando.MOVER_PARA_FRENTE, _textura: Texture2D = null, _condicao: Condicao = Condicao.NENHUMA, _repetir: int = 1):
+func _init(_nome: String = "", _tipo: TipoComando = TipoComando.MOVER_PARA_FRENTE, _textura: Texture2D = null, _condicao: Condicao = Condicao.NENHUMA, _repetir: int = 1):
 	nome = _nome
 	tipo = _tipo
 	textura = _textura
