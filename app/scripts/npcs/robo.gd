@@ -70,6 +70,8 @@ func parar():
 	position = posicao_futura
 	instrucao_em_execucao = null
 	movimento = Vector2.ZERO
+	Global.play
+	print(position)
 
 
 func executar() -> void:
@@ -84,6 +86,7 @@ func processa_fila() -> void:
 			instrucao_em_execucao = instrucoes.pop_front()
 			
 			if instrucao_em_execucao != null:
+				print("REPETIR: ",instrucao_em_execucao.comando.repetir)
 				return
 
 
@@ -103,6 +106,8 @@ func mover_frente():
 	var passos = instrucao_em_execucao.comando.repetir * Global.unidade_de_movimento
 	var deslocamento = DIRECOES[direcao] * passos * modificador_direcao
 	posicao_futura = pos_pre_comando + deslocamento
+	
+	print(passos)
 	
 	var direcao_mov = deslocamento.normalized()
 	movimento = direcao_mov * velocidade

@@ -14,13 +14,15 @@ script = ExtResource("1_ngsvm")
 position = Vector2(312, 374)
 
 [node name="VirarParaCima" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(624, 144)
+visible = false
+position = Vector2(1023, 221)
 comando = ExtResource("4_jthng")
 
 [node name="MoverParaFrente" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(400, 144)
+position = Vector2(1021, 115)
 comando = ExtResource("5_l83ql")
 
 [node name="VirarParaDireita" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(755, 217)
+visible = false
+position = Vector2(1022, 332)
 comando = ExtResource("6_l83ql")
