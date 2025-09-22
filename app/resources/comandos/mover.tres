@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://fkt276hdhsc"]
+
+[ext_resource type="Texture2D" uid="uid://dtm4xj6uxgkw8" path="res://app/assets/graphics/characters/andando_madeira_esquerda.png" id="1_6s0o5"]
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="2_oev2c"]
+
+[resource]
+script = ExtResource("2_oev2c")
+_nome = "Mover"
+_tipo = 0
+_textura = ExtResource("1_6s0o5")
+_condicao = 0
+_repetir = 1
+_direcao = 0
+metadata/_custom_type_script = "uid://dsfujhsaybp18"

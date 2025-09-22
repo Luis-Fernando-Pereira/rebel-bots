@@ -19,6 +19,7 @@ shape = SubResource("RectangleShape2D_tccx2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 32.0

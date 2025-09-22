@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://btehid6vqd1sx"]
 
 [ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_800kv"]
-[ext_resource type="Texture2D" uid="uid://dt4dvbhiiutmf" path="res://app/assets/graphics/items/icon.svg" id="2_w5f3h"]
+[ext_resource type="Texture2D" uid="uid://dkv3dcxttnx7b" path="res://app/assets/graphics/characters/ballbot/4/ballgreen1.png" id="1_i8dct"]
 
 [resource]
 script = ExtResource("1_800kv")
-nome = "Virar"
-tipo = 1
-textura = ExtResource("2_w5f3h")
-condicao = 0
-repetir = 1
-direcao = 3
+_nome = "Virar Para Cima"
+_tipo = 1
+_textura = ExtResource("1_i8dct")
+_condicao = 0
+_repetir = 1
+_direcao = 2
 metadata/_custom_type_script = "uid://dsfujhsaybp18"

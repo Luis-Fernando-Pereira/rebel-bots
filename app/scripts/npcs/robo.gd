@@ -125,8 +125,6 @@ func virar():
 			direcao = Global.cima
 		Global.Direcoes.BAIXO:
 			direcao = Global.baixo
-	
-	print("virou")
 
 
 func pegar():

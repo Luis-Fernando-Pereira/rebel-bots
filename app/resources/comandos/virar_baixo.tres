@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://batv07k711c72"]
+
+[ext_resource type="Texture2D" uid="uid://cc8k1pkpk5jg3" path="res://app/assets/graphics/characters/ballbot/1/ballred1.png" id="1_1w218"]
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_scavf"]
+
+[resource]
+script = ExtResource("1_scavf")
+_nome = "Virar Para Baixo"
+_tipo = 1
+_textura = ExtResource("1_1w218")
+_condicao = 0
+_repetir = 1
+_direcao = 3
+metadata/_custom_type_script = "uid://dsfujhsaybp18"

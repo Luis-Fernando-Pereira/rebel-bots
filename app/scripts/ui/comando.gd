@@ -22,48 +22,45 @@ func _ready():
 
 func _process(_delta):
 	if arrastavel:
-		# Início do clique
 		if Input.is_action_just_pressed("click"):
 			pos_nicial = global_position
 			clicou_pos = get_global_mouse_position()
 			deslocamento = clicou_pos - global_position
-			Global.esta_arrastando = true
-			arrastando = false  # ainda não sabemos se é arrasto ou clique
-
-		# Durante clique: se mover mais que alguns pixels, vira arrasto
-		if Input.is_action_pressed("click") and Global.esta_arrastando:
-			var dist = clicou_pos.distance_to(get_global_mouse_position())
-			if dist > 5: # tolerância p/ diferenciar clique de arrasto
-				arrastando = true
-				global_position = get_global_mouse_position() - deslocamento
-
-		# Soltou o clique
-		elif Input.is_action_just_released("click") and Global.esta_arrastando:
+			arrastando = false
 			Global.esta_arrastando = false
-			
+
+		if Input.is_action_pressed("click"):
+			var dist = clicou_pos.distance_to(get_global_mouse_position())
+			if dist > 5:
+				arrastando = true
+				Global.esta_arrastando = true
+				global_position = get_global_mouse_position() - deslocamento
+		elif Input.is_action_just_released("click"):
 			if arrastando:
-				# terminou arrasto
 				position = pos_nicial
 				if esta_dentro_de_soltavel:
 					encaixar_comando()
+				arrastando = false
+				Global.esta_arrastando = false
 			else:
-				# foi só clique → abre UI
 				alternar_ui()
+
 
 func encaixar_comando():
 	comando_encaixado.emit(comando)
 
 func _on_area_2d_mouse_entered() -> void:
-	if not Global.esta_arrastando:
+	if not arrastando:
 		arrastavel = true
 		scale = Vector2(1.05, 1.05)
 		z_index = 4
 
 func _on_area_2d_mouse_exited() -> void:
-	if not Global.esta_arrastando:
+	if not arrastando:
 		arrastavel = false
 		scale = Vector2(1,1)
 		self.z_index = z_index_original
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body not in corpos_dentro:
