@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="3_ngsvm"]
 [ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="4_jthng"]
 [ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="5_l83ql"]
+[ext_resource type="Resource" uid="uid://wlddsj8v1boj" path="res://app/resources/comandos/virar_para_direita.tres" id="6_l83ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jthng"]
 
@@ -22,11 +23,18 @@ shape = SubResource("RectangleShape2D_jthng")
 
 [node name="Comando" parent="." instance=ExtResource("3_ngsvm")]
 position = Vector2(642, 140)
+[node name="VirarParaCima" parent="." instance=ExtResource("3_ngsvm")]
+visible = false
+position = Vector2(1023, 221)
 comando = ExtResource("4_jthng")
 
-[node name="Comando2" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(407, 144)
+[node name="MoverParaFrente" parent="." instance=ExtResource("3_ngsvm")]
+position = Vector2(1021, 115)
 comando = ExtResource("5_l83ql")
 
 [connection signal="area_entered" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_entered"]
 [connection signal="area_exited" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_exited"]
+[node name="VirarParaDireita" parent="." instance=ExtResource("3_ngsvm")]
+visible = false
+position = Vector2(1022, 332)
+comando = ExtResource("6_l83ql")
