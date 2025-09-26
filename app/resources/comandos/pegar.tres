@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://cbkkye5hv7kxq"]
+
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_jvprp"]
+[ext_resource type="Texture2D" uid="uid://dt4dvbhiiutmf" path="res://app/assets/graphics/items/icon.svg" id="1_vjjdm"]
+
+[resource]
+script = ExtResource("1_jvprp")
+_nome = ""
+_tipo = 2
+_textura = ExtResource("1_vjjdm")
+_condicao = 0
+_repetir = 1
+_direcao = 0
+metadata/_custom_type_script = "uid://dsfujhsaybp18"
