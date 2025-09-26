@@ -9,11 +9,14 @@ var posicao_futura = null
 var direcao:= Vector2.RIGHT
 @export var velocidade := 100
 var estado := Global.Estado.IDLE
+
 var objetos_proximos: Array[Area2D] = []
 var objeto_carregado: Area2D = null
+
 var executar_instrucao = false
 var pos_pre_comando: Vector2
 var movimento: Vector2
+
 
 const DIRECOES = {
 	Global.direita: Vector2.RIGHT,
@@ -27,7 +30,7 @@ var modificador_direcao: int = 1  # pode ser 1 (normal), -1 (inverter), ou até 
 
 func _ready() -> void:
 	instrucoes.resize(9)
-	print(position)
+	
 
 
 func _process(delta: float) -> void:
@@ -73,11 +76,11 @@ func parar():
 	instrucao_em_execucao = null
 	movimento = Vector2.ZERO
 	Global.play
-	print(position)
+	
 
 
 func executar() -> void:
-	print("excecutou comando")
+	
 	pos_pre_comando = position
 	await preparar_para_execucao()
 
@@ -88,7 +91,7 @@ func processa_fila() -> void:
 			instrucao_em_execucao = instrucoes.pop_front()
 			
 			if instrucao_em_execucao != null:
-				print("REPETIR: ",instrucao_em_execucao.comando.repetir)
+				
 				return
 
 
@@ -99,6 +102,7 @@ func preparar_para_execucao():
 		Comando.TipoComando.VIRAR:
 			virar()
 		Comando.TipoComando.PEGAR:
+			
 			pegar()
 		Comando.TipoComando.LARGAR:
 			largar()
@@ -109,12 +113,12 @@ func mover_frente():
 	var deslocamento = DIRECOES[direcao] * passos * modificador_direcao
 	posicao_futura = pos_pre_comando + deslocamento
 	
-	print(passos)
+	
 	
 	var direcao_mov = deslocamento.normalized()
 	movimento = direcao_mov * velocidade
 	
-	print("posicao futura: ", posicao_futura)
+	
 
 
 func virar():
@@ -128,10 +132,12 @@ func virar():
 		Global.Direcoes.BAIXO:
 			direcao = Global.baixo
 	
-	print("virou")
+	
 
 
 func pegar():
+	print(objeto_carregado, objetos_proximos.is_empty())
+	movimento = Vector2.ZERO
 	if objeto_carregado == null and not objetos_proximos.is_empty():
 		var objeto_a_pegar = objetos_proximos[0]
 		
@@ -184,11 +190,13 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 
 
 func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
+
 	pass
 		
 
 
 func _on_area_de_interacao_area_entered(area: Area2D) -> void:
+	print(area, objetos_proximos)
 	if area.is_in_group("pegavel") and not area in objetos_proximos:
 		objetos_proximos.append(area)
 		print("Objeto pegavel detectado: ", area.name)

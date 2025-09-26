@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp1qi05foya7k"]
+[gd_scene load_steps=11 format=3 uid="uid://cp1qi05foya7k"]
 
 [ext_resource type="Script" uid="uid://bnpwscs32b61o" path="res://app/scenes/main/jogo.gd" id="1_ngsvm"]
 [ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="3_ap7gv"]
 [ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="3_ngsvm"]
 [ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="4_jthng"]
 [ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="5_l83ql"]
-[ext_resource type="Resource" uid="uid://wlddsj8v1boj" path="res://app/resources/comandos/virar_para_direita.tres" id="6_l83ql"]
+[ext_resource type="Resource" path="res://app/resources/comandos/virar_para_direita.tres" id="6_l83ql"]
+[ext_resource type="PackedScene" uid="uid://d37sayxci0ih3" path="res://app/scenes/ui/caixa.tscn" id="7_sa2oq"]
+[ext_resource type="Resource" uid="uid://cbkkye5hv7kxq" path="res://app/resources/comandos/pegar.tres" id="8_fubwv"]
+[ext_resource type="Resource" uid="uid://dq0v2dlqf81hj" path="res://app/resources/comandos/largar.tres" id="9_dovov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jthng"]
 
@@ -18,11 +21,12 @@ position = Vector2(312, 374)
 [node name="AreaDeInteracao" type="Area2D" parent="Robo"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Robo/AreaDeInteracao"]
-position = Vector2(46, 2)
+position = Vector2(69, 6)
 shape = SubResource("RectangleShape2D_jthng")
 
 [node name="Comando" parent="." instance=ExtResource("3_ngsvm")]
 position = Vector2(642, 140)
+
 [node name="VirarParaCima" parent="." instance=ExtResource("3_ngsvm")]
 visible = false
 position = Vector2(1023, 221)
@@ -32,9 +36,21 @@ comando = ExtResource("4_jthng")
 position = Vector2(1021, 115)
 comando = ExtResource("5_l83ql")
 
-[connection signal="area_entered" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_entered"]
-[connection signal="area_exited" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_exited"]
 [node name="VirarParaDireita" parent="." instance=ExtResource("3_ngsvm")]
 visible = false
 position = Vector2(1022, 332)
 comando = ExtResource("6_l83ql")
+
+[node name="Caixa" parent="." instance=ExtResource("7_sa2oq")]
+position = Vector2(552, 381)
+
+[node name="Pegar" parent="." instance=ExtResource("3_ngsvm")]
+position = Vector2(488, 63)
+comando = ExtResource("8_fubwv")
+
+[node name="Largar" parent="." instance=ExtResource("3_ngsvm")]
+position = Vector2(325, 145)
+comando = ExtResource("9_dovov")
+
+[connection signal="area_entered" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_entered"]
+[connection signal="area_exited" from="Robo/AreaDeInteracao" to="Robo" method="_on_area_de_interacao_area_exited"]
