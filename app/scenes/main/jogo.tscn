@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk81a4y7oh2qp"]
+
+[ext_resource type="Script" uid="uid://bnpwscs32b61o" path="res://app/scenes/main/jogo.gd" id="1_ngsvm"]
+[ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="3_ap7gv"]
+[ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="3_ngsvm"]
+[ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="4_jthng"]
+[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="5_l83ql"]
+[ext_resource type="Resource" uid="uid://wlddsj8v1boj" path="res://app/resources/comandos/virar_para_direita.tres" id="6_l83ql"]
+
+[node name="Jogo" type="Node2D"]
+script = ExtResource("1_ngsvm")
+
+[node name="Robo" parent="." instance=ExtResource("3_ap7gv")]
+position = Vector2(312, 374)
+
+[node name="VirarParaCima" parent="." instance=ExtResource("3_ngsvm")]
+visible = false
+position = Vector2(1023, 221)
+comando = ExtResource("4_jthng")
+
+[node name="MoverParaFrente" parent="." instance=ExtResource("3_ngsvm")]
+position = Vector2(1021, 115)
+comando = ExtResource("5_l83ql")
+
+[node name="VirarParaDireita" parent="." instance=ExtResource("3_ngsvm")]
+visible = false
+position = Vector2(1022, 332)
+comando = ExtResource("6_l83ql")

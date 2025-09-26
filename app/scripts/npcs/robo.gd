@@ -17,6 +17,8 @@ var executar_instrucao = false
 var pos_pre_comando: Vector2
 var movimento: Vector2
 
+@export var delay_comando: float = 1.0
+var em_delay = false
 
 const DIRECOES = {
 	Global.direita: Vector2.RIGHT,
@@ -46,12 +48,13 @@ func _process(delta: float) -> void:
 			
 			if nao_esta_na_posicao_futura(delta):
 				mover(delta)
+				print(position)
 			else:
 				parar()
 
 
 func pode_processar_fila() -> bool:
-	return nao_esta_executando_instrucao() && fila_possui_instrucoes()
+	return not em_delay and nao_esta_executando_instrucao() and fila_possui_instrucoes()
 
 
 func fila_possui_instrucoes() -> bool:
@@ -72,11 +75,20 @@ func mover(delta):
 	position += movimento * delta
 
 func parar():
-	position = posicao_futura
-	instrucao_em_execucao = null
-	movimento = Vector2.ZERO
-	Global.play
-	
+	if instrucao_em_execucao != null and not em_delay:
+		position = posicao_futura
+		movimento = Vector2.ZERO
+		estado = Global.Estado.IDLE
+		
+		# libera a instrução atual
+		instrucao_em_execucao = null
+		
+		# marca que entrou em delay
+		em_delay = true
+		print("1")
+		await get_tree().create_timer(delay_comando).timeout
+		print("2")
+		em_delay = false
 
 
 func executar() -> void:
@@ -190,9 +202,7 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 
 
 func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
-
 	pass
-		
 
 
 func _on_area_de_interacao_area_entered(area: Area2D) -> void:
