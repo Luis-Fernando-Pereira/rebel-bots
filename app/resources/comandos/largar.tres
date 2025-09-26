@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://dq0v2dlqf81hj"]
+
+[ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_bw3u4"]
+[ext_resource type="Texture2D" uid="uid://byx76wrsgoll" path="res://app/assets/graphics/characters/pegando_direita.png" id="1_k3uud"]
+
+[resource]
+script = ExtResource("1_bw3u4")
+_nome = ""
+_tipo = 3
+_textura = ExtResource("1_k3uud")
+_condicao = 0
+_repetir = 1
+_direcao = 0
+metadata/_custom_type_script = "uid://dsfujhsaybp18"
