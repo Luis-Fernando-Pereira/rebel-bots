@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bnpwscs32b61o" path="res://app/scenes/main/jogo.gd" id="1_ngsvm"]
 [ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="3_ap7gv"]
-[ext_resource type="PackedScene" uid="uid://b16tfqsyvmt8s" path="res://app/scenes/ui/comandos.tscn" id="3_ngsvm"]
+[ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="3_ngsvm"]
+[ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="4_jthng"]
+[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="5_l83ql"]
+[ext_resource type="Resource" path="res://app/resources/comandos/virar_para_direita.tres" id="6_l83ql"]
 
 [node name="Jogo" type="Node2D"]
 script = ExtResource("1_ngsvm")
