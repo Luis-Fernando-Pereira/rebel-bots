@@ -7,7 +7,7 @@ extends Node
 
 var esta_arrastando = false
 enum Comandos{MOVER_PARA_FRENTE,VIRAR}
-const unidade_de_movimento = 50
+const unidade_de_movimento = 32
 var play = false
 
 enum Estado {IDLE, EXECUTANDO, FINALIZADO}
