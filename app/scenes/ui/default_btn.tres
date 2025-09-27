@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dk01ws8wqg5nt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0px1k"]
+bg_color = Color(0.932932, 0.436351, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfrrt"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_0px1k")
+Button/styles/pressed = SubResource("StyleBoxFlat_bfrrt")

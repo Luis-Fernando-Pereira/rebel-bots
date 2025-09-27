@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc06scmcpveuo"]
+
+[ext_resource type="Script" uid="uid://dtdv1g10j7o5b" path="res://app/scenes/ui/title_screen.gd" id="1_gpg86"]
+[ext_resource type="Texture2D" uid="uid://bqon0xehq5j00" path="res://app/assets/graphics/background/Background Props.png" id="1_xxjk4"]
+[ext_resource type="Texture2D" uid="uid://6nx21y4255rg" path="res://app/assets/graphics/background/Buildings.png" id="2_fgmnc"]
+[ext_resource type="Texture2D" uid="uid://byx76wrsgoll" path="res://app/assets/graphics/characters/pegando_direita.png" id="2_kxjdg"]
+[ext_resource type="Theme" uid="uid://dk01ws8wqg5nt" path="res://app/scenes/ui/default_btn.tres" id="3_bs38h"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gpg86")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xxjk4")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="emote" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+texture = ExtResource("2_fgmnc")
+expand_mode = 4
+
+[node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_bs38h")
+text = "start"
+
+[node name="credits_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_bs38h")
+text = "credits"
+
+[node name="quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_bs38h")
+text = "Quit Game"
+
+[node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_kxjdg")
+expand_mode = 2
+flip_h = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
