@@ -17,7 +17,7 @@ script = ExtResource("1_ngsvm")
 position = Vector2(312, 374)
 
 [node name="Comando" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(642, 140)
+position = Vector2(573, 267)
 
 [node name="VirarParaCima" parent="." instance=ExtResource("3_ngsvm")]
 visible = false
@@ -25,7 +25,7 @@ position = Vector2(1023, 221)
 comando = ExtResource("4_jthng")
 
 [node name="MoverParaFrente" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(1021, 115)
+position = Vector2(572, 197)
 comando = ExtResource("5_l83ql")
 
 [node name="VirarParaDireita" parent="." instance=ExtResource("3_ngsvm")]
@@ -37,9 +37,9 @@ comando = ExtResource("6_l83ql")
 position = Vector2(591, 380)
 
 [node name="Pegar" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(488, 63)
+position = Vector2(277, 206)
 comando = ExtResource("8_fubwv")
 
 [node name="Largar" parent="." instance=ExtResource("3_ngsvm")]
-position = Vector2(325, 145)
+position = Vector2(277, 268)
 comando = ExtResource("9_dovov")
