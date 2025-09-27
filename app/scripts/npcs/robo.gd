@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 			
 			if nao_esta_na_posicao_futura(delta):
 				mover(delta)
-				print(position)
+				
 			else:
 				parar()
 

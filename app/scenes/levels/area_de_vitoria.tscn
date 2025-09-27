@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ydt03gyn157p"]
+
+[ext_resource type="Script" uid="uid://7bb0dykusffx" path="res://area_de_vitoria.gd" id="1_nrod1"]
+[ext_resource type="Texture2D" uid="uid://d30ib2eykfu6x" path="res://app/assets/graphics/environment/botao_verde.png" id="2_kbsej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsej"]
+size = Vector2(32, 32)
+
+[node name="AreaDeVitoria" type="Area2D" groups=["vitoria"]]
+script = ExtResource("1_nrod1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kbsej")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["vitoria"]]
+position = Vector2(-5.25, -32)
+scale = Vector2(3.57813, 4.03735)
+texture = ExtResource("2_kbsej")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

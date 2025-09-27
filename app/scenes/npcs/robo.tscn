@@ -34,7 +34,7 @@ height = 40.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07dra"]
 size = Vector2(56, 58)
 
-[node name="Robo" type="Area2D"]
+[node name="Robo" type="Area2D" groups=["colidivel", "vitoria"]]
 script = ExtResource("1_07dra")
 
 [node name="Encaxes" parent="." instance=ExtResource("5_21535")]
