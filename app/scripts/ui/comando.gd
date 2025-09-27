@@ -17,38 +17,39 @@ var arrastando = false
 
 func _ready():
 	if comando != null: 
+		if comando.nome:
+			$Control/Titulo.text = comando.nome
+		
 		if comando.textura:
 			$Sprite2D.texture = comando.textura
 
 func _process(_delta):
+	
 	if arrastavel:
-		# Início do clique
+		
 		if Input.is_action_just_pressed("click"):
-			pos_nicial = global_position
+			pos_nicial = global_position   # salva em coordenadas globais
 			clicou_pos = get_global_mouse_position()
 			deslocamento = clicou_pos - global_position
 			Global.esta_arrastando = true
-			arrastando = false  # ainda não sabemos se é arrasto ou clique
-
-		# Durante clique: se mover mais que alguns pixels, vira arrasto
+			arrastando = false
+			
 		if Input.is_action_pressed("click") and Global.esta_arrastando:
 			var dist = clicou_pos.distance_to(get_global_mouse_position())
-			if dist > 5: # tolerância p/ diferenciar clique de arrasto
+			if dist > 5:
 				arrastando = true
 				global_position = get_global_mouse_position() - deslocamento
-
-		# Soltou o clique
+				
 		elif Input.is_action_just_released("click") and Global.esta_arrastando:
 			Global.esta_arrastando = false
 			
 			if arrastando:
-				# terminou arrasto
-				position = pos_nicial
+				global_position = pos_nicial   # <<< aqui era o erro
 				if esta_dentro_de_soltavel:
 					encaixar_comando()
 			else:
-				# foi só clique → abre UI
 				alternar_ui()
+
 
 func encaixar_comando():
 	comando_encaixado.emit(comando)
@@ -83,8 +84,15 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		body.modulate = Color(Color.MEDIUM_PURPLE, 0.7)
 
 func alternar_ui() -> void:
+	$Control.visible = !$Control.visible
+	
 	if comando.tipo == Comando.TipoComando.MOVER_PARA_FRENTE:
-		$Control.visible = !$Control.visible
+		print("visivel")
+		$Control/SpinBox.visible = true
+		$Control/InputLabel.visible = true
+	else:
+		$Control/SpinBox.visible = false
+		$Control/InputLabel.visible = false
 
 func _on_spin_box_focus_exited() -> void:
 	if $Control/SpinBox.value != null && $Control/SpinBox.value != 0:

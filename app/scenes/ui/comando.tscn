@@ -6,7 +6,6 @@
 size = Vector2(32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm6il"]
-font_color = Color(0, 0, 0, 1)
 
 [node name="Comando" type="Node2D"]
 script = ExtResource("1_tccx2")
@@ -19,6 +18,7 @@ shape = SubResource("RectangleShape2D_tccx2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 32.0
@@ -28,23 +28,34 @@ offset_bottom = 24.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_right = 208.0
-offset_bottom = 48.0
+offset_right = 240.0
+offset_bottom = 96.0
+color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Titulo" type="Label" parent="Control"]
 layout_mode = 0
-offset_top = 8.0
-offset_right = 117.0
+offset_right = 240.0
 offset_bottom = 31.0
+text = "Titulo"
+label_settings = SubResource("LabelSettings_jm6il")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 125.0
+offset_bottom = 71.0
 text = "Casas à mover:"
 label_settings = SubResource("LabelSettings_jm6il")
 
 [node name="SpinBox" type="SpinBox" parent="Control"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 8.0
-offset_right = 207.0
-offset_bottom = 39.0
+offset_left = 136.0
+offset_top = 48.0
+offset_right = 223.0
+offset_bottom = 79.0
 
 [connection signal="body_entered" from="AreaDoComando" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AreaDoComando" to="." method="_on_area_2d_body_exited"]
