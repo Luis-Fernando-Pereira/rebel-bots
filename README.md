@@ -1,4 +1,4 @@
-#Participantes
+# Participantes
 	Gustavo de Souza
 	Leonardo Lotério Lima
 	Lucas Honorato
