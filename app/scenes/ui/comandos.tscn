@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://b16tfqsyvmt8s"]
+
+[ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="1_t8o6o"]
+[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover.tres" id="2_q70p8"]
+[ext_resource type="Resource" uid="uid://dbs33kmw8h2f8" path="res://app/resources/comandos/virar_para_esquerda.tres" id="3_jlv72"]
+[ext_resource type="Resource" uid="uid://be0k86slvktsa" path="res://app/resources/comandos/virar_para_cima.tres" id="4_q70p8"]
+[ext_resource type="Resource" uid="uid://bwrsus5u676o" path="res://app/resources/comandos/virar_para_baixo.tres" id="5_jlv72"]
+[ext_resource type="Resource" uid="uid://wlddsj8v1boj" path="res://app/resources/comandos/virar_para_direita.tres" id="6_iw5g1"]
+[ext_resource type="Resource" uid="uid://cbkkye5hv7kxq" path="res://app/resources/comandos/pegar.tres" id="7_abimv"]
+[ext_resource type="Resource" uid="uid://dq0v2dlqf81hj" path="res://app/resources/comandos/largar.tres" id="8_6ruxq"]
+
+[node name="Comandos" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 352.0
+offset_bottom = 64.0
+mouse_filter = 2
+
+[node name="Mover" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(32, 32)
+comando = ExtResource("2_q70p8")
+
+[node name="VirarEsquerda" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(80, 32)
+comando = ExtResource("3_jlv72")
+
+[node name="VirarCima" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(128, 32)
+comando = ExtResource("4_q70p8")
+
+[node name="VirarBaixo" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(176, 32)
+comando = ExtResource("5_jlv72")
+
+[node name="VirarDireita" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(224, 32)
+comando = ExtResource("6_iw5g1")
+
+[node name="Pegar" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(272, 32)
+comando = ExtResource("7_abimv")
+
+[node name="Largar" parent="." instance=ExtResource("1_t8o6o")]
+position = Vector2(320, 32)
+comando = ExtResource("8_6ruxq")

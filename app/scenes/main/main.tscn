@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://cql1fw40akls2"]
+[gd_scene load_steps=3 format=3 uid="uid://cql1fw40akls2"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="1_h33mq"]
+[ext_resource type="PackedScene" uid="uid://b16tfqsyvmt8s" path="res://app/scenes/ui/comandos.tscn" id="2_2s2js"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Robo" parent="." instance=ExtResource("1_h33mq")]
+position = Vector2(158, 376)
+
+[node name="Comandos" parent="." instance=ExtResource("2_2s2js")]
+position = Vector2(388, 37)
