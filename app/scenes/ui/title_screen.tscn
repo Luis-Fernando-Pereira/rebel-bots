@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc06scmcpveuo"]
+[gd_scene load_steps=6 format=3 uid="uid://cg0uva3uqx0j0"]
 
 [ext_resource type="Script" uid="uid://dtdv1g10j7o5b" path="res://app/scenes/ui/title_screen.gd" id="1_gpg86"]
 [ext_resource type="Texture2D" uid="uid://bqon0xehq5j00" path="res://app/assets/graphics/background/Background Props.png" id="1_xxjk4"]
 [ext_resource type="Texture2D" uid="uid://6nx21y4255rg" path="res://app/assets/graphics/background/Buildings.png" id="2_fgmnc"]
 [ext_resource type="Texture2D" uid="uid://byx76wrsgoll" path="res://app/assets/graphics/characters/pegando_direita.png" id="2_kxjdg"]
-[ext_resource type="Theme" uid="uid://dk01ws8wqg5nt" path="res://app/scenes/ui/default_btn.tres" id="3_bs38h"]
+[ext_resource type="Theme" uid="uid://55kbj63ivfxd" path="res://app/scenes/ui/default_btn.tres" id="3_bs38h"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_gpg86")
 
 [node name="bg" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -44,6 +45,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="emote" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 texture = ExtResource("2_fgmnc")
@@ -65,6 +67,7 @@ theme = ExtResource("3_bs38h")
 text = "Quit Game"
 
 [node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_kxjdg")
 expand_mode = 2
