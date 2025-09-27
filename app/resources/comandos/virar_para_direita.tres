@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_8v2l8")
-nome = "Virar Para Direita"
-tipo = 1
-textura = ExtResource("2_0b4sa")
-condicao = 0
-repetir = 1
-direcao = 1
+_nome = "Virar Para Direita"
+_tipo = 1
+_textura = ExtResource("2_0b4sa")
+_condicao = 0
+_repetir = 1
+_direcao = 1
 metadata/_custom_type_script = "uid://dsfujhsaybp18"

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ListaComandos" load_steps=5 format=3 uid="uid://ccs2vrg8hkmij"]
 
 [ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_18bx1"]
-[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover_para_frente.tres" id="2_x83oo"]
+[ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover.tres" id="2_x83oo"]
 [ext_resource type="Resource" uid="uid://btehid6vqd1sx" path="res://app/resources/comandos/virar.tres" id="3_ywtd1"]
 [ext_resource type="Script" uid="uid://c7sr62d453uqe" path="res://app/scripts/resources/lista_comandos.gd" id="4_hb8rb"]
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rebel Bots"
-run/main_scene="uid://cp1qi05foya7k"
+run/main_scene="uid://cc06scmcpveuo"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://app/assets/graphics/items/icon.svg"
 
