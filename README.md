@@ -2,6 +2,7 @@
 	Gustavo de Souza
 	Leonardo Lotério Lima
 	Lucas Honorato
+	Luis Fernando Pereira
 	Miguel Angel Balladares Huertas
 	Miguel Angel Dufloth Filho
 
