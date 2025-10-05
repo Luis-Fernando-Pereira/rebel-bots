@@ -18,6 +18,7 @@ var tipo: TipoComando:
 		_tipo = valor 
 
 @export var _textura: Texture2D
+
 var textura: Texture2D:
 	get:
 		return _textura

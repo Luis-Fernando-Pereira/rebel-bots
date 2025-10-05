@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://fkt276hdhsc"]
 
-[ext_resource type="Texture2D" uid="uid://d3lr70yfyxbrj" path="res://app/assets/graphics/characters/ballbot/2/ballpurple1.png" id="1_6s0o5"]
+[ext_resource type="Texture2D" uid="uid://db2oqk2c7brhs" path="res://app/assets/graphics/items/Move2.png" id="1_6s0o5"]
 [ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="2_oev2c"]
 
 [resource]

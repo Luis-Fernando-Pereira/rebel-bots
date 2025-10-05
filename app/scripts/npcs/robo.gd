@@ -3,8 +3,6 @@ extends Area2D
 var instrucoes: Array[Instrucao] = []
 var instrucao_em_execucao: Instrucao
 
-var fabrica_instrucao: Instrucao = Instrucao.new()
-
 var posicao_futura = null
 var direcao:= Vector2.RIGHT
 @export var velocidade := 100
@@ -17,7 +15,7 @@ var executar_instrucao = false
 var pos_pre_comando: Vector2
 var movimento: Vector2
 
-@export var delay_comando: float = 1.0
+@export var delay_comando: float = 0.5
 var em_delay = false
 
 const DIRECOES = {
@@ -114,7 +112,6 @@ func preparar_para_execucao():
 		Comando.TipoComando.VIRAR:
 			virar()
 		Comando.TipoComando.PEGAR:
-			
 			pegar()
 		Comando.TipoComando.LARGAR:
 			largar()
@@ -122,27 +119,24 @@ func preparar_para_execucao():
 
 func mover_frente():
 	var passos = instrucao_em_execucao.comando.repetir * Global.unidade_de_movimento
-	var deslocamento = DIRECOES[direcao] * passos * modificador_direcao
-	posicao_futura = pos_pre_comando + deslocamento
+	var deslocamento = direcao * passos * modificador_direcao  # agora usa Vector2 direto
 	
-	
-	
-	var direcao_mov = deslocamento.normalized()
-	movimento = direcao_mov * velocidade
-	
-	
+	movimento = deslocamento.normalized() * velocidade  # velocidade constante
+	posicao_futura = position + deslocamento
 
 
 func virar():
 	match instrucao_em_execucao.comando.direcao:
 		Global.Direcoes.ESQUERDA:
-			direcao = Global.esquerda
+			direcao = Vector2.LEFT
 		Global.Direcoes.DIREITA:
-			direcao = Global.direita
+			direcao = Vector2.RIGHT
 		Global.Direcoes.CIMA:
-			direcao = Global.cima
+			direcao = Vector2.UP
 		Global.Direcoes.BAIXO:
-			direcao = Global.baixo
+			direcao = Vector2.DOWN
+	print("Nova direcao:", direcao)
+
 	
 	
 
@@ -198,7 +192,7 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 		var comando = lista_de_comandos.get(index)
 		
 		if comando != null:
-			instrucoes.set(index, fabrica_instrucao.nova_instrucao(comando))
+			instrucoes.set(index, Instrucao.new().nova_instrucao(comando))
 
 
 func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
