@@ -16,6 +16,7 @@ var clicou_pos: Vector2
 var arrastando = false
 
 func _ready():
+	$Control.z_index = 3
 	if comando != null: 
 		if comando.nome:
 			$Control/Titulo.text = comando.nome
@@ -58,7 +59,7 @@ func _on_area_2d_mouse_entered() -> void:
 	if not Global.esta_arrastando:
 		arrastavel = true
 		scale = Vector2(1.05, 1.05)
-		z_index = 4
+		z_index = 2
 
 func _on_area_2d_mouse_exited() -> void:
 	if not Global.esta_arrastando:

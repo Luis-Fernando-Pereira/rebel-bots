@@ -38,6 +38,7 @@ size = Vector2(56, 58)
 script = ExtResource("1_07dra")
 
 [node name="Encaxes" parent="." instance=ExtResource("5_21535")]
+visible = false
 layout_direction = 0
 offset_left = 72.0
 offset_top = 72.0
