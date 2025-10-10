@@ -46,7 +46,7 @@ var direcao: Global.Direcoes:
 	get:
 		return _direcao
 	set(valor):
-		if valor:
+		if valor != null:
 			_direcao = valor
 		else:
 			_direcao = Global.Direcoes.DIREITA 
@@ -87,8 +87,8 @@ func duplicar() -> Comando:
 		_condicao,
 		_repetir
 	)
-	novo.direcao = direcao
-	novo.obstaculo_a_frente = obstaculo_a_frente
-	novo.executar_se_condicao_verdadeira = executar_se_condicao_verdadeira
-	novo.executar_se_condicao_falsa = executar_se_condicao_falsa
+	novo.direcao = self.direcao
+	novo.obstaculo_a_frente = self.obstaculo_a_frente
+	novo.executar_se_condicao_verdadeira = self.executar_se_condicao_verdadeira
+	novo.executar_se_condicao_falsa = self.executar_se_condicao_falsa
 	return novo

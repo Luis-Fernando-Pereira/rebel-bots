@@ -87,7 +87,6 @@ func alternar_ui() -> void:
 	$Control.visible = !$Control.visible
 	
 	if comando.tipo == Comando.TipoComando.MOVER_PARA_FRENTE:
-		print("visivel")
 		$Control/SpinBox.visible = true
 		$Control/InputLabel.visible = true
 	else:

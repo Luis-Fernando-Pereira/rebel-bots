@@ -38,12 +38,11 @@ size = Vector2(56, 58)
 script = ExtResource("1_07dra")
 
 [node name="Encaxes" parent="." instance=ExtResource("5_21535")]
-visible = false
 layout_direction = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = 72.0
+offset_top = 72.0
+offset_right = 72.0
+offset_bottom = 72.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6nef6")

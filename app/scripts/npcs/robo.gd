@@ -83,9 +83,7 @@ func parar():
 		
 		# marca que entrou em delay
 		em_delay = true
-		print("1")
 		await get_tree().create_timer(delay_comando).timeout
-		print("2")
 		em_delay = false
 
 
@@ -126,6 +124,12 @@ func mover_frente():
 
 
 func virar():
+	print("Esquerda:",Global.Direcoes.ESQUERDA)
+	print("Direita:",Global.Direcoes.DIREITA)
+	print("Cima:",Global.Direcoes.CIMA)
+	print("Baixo:",Global.Direcoes.BAIXO)
+	print("direção atual:",instrucao_em_execucao.comando.direcao)
+	print("",instrucao_em_execucao.comando.direcao)
 	match instrucao_em_execucao.comando.direcao:
 		Global.Direcoes.ESQUERDA:
 			direcao = Vector2.LEFT
@@ -135,20 +139,17 @@ func virar():
 			direcao = Vector2.UP
 		Global.Direcoes.BAIXO:
 			direcao = Vector2.DOWN
-	print("Nova direcao:", direcao)
 
 	
 	
 
 
 func pegar():
-	print(objeto_carregado, objetos_proximos.is_empty())
 	movimento = Vector2.ZERO
 	if objeto_carregado == null and not objetos_proximos.is_empty():
 		var objeto_a_pegar = objetos_proximos[0]
 		
 		if objeto_a_pegar.is_in_group("pegavel"):
-			print("Pegando o objeto: ", objeto_a_pegar.name)
 			
 			objeto_carregado = objeto_a_pegar
 			
@@ -163,7 +164,6 @@ func pegar():
 
 func largar():
 	if objeto_carregado != null:
-		print("Largando o objeto: ", objeto_carregado.name)
 		
 		var objeto_a_largar = objeto_carregado
 		var cena_principal = get_tree().current_scene
@@ -200,13 +200,10 @@ func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
 
 
 func _on_area_de_interacao_area_entered(area: Area2D) -> void:
-	print(area, objetos_proximos)
 	if area.is_in_group("pegavel") and not area in objetos_proximos:
 		objetos_proximos.append(area)
-		print("Objeto pegavel detectado: ", area.name)
-		
+
 
 func _on_area_de_interacao_area_exited(area: Area2D) -> void:
 	if area in objetos_proximos:
 		objetos_proximos.erase(area)
-		print("Objeto pegavel saiu de alcance: ", area.name)
