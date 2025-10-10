@@ -50,10 +50,11 @@ func _process(_delta):
 					encaixar_comando()
 			else:
 				alternar_ui()
-
+				
+			arrastavel = false
 
 func encaixar_comando():
-	comando_encaixado.emit(comando)
+	comando_encaixado.emit(comando.duplicar())
 
 func _on_area_2d_mouse_entered() -> void:
 	if not Global.esta_arrastando:
