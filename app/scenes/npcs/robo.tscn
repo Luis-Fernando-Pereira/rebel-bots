@@ -45,7 +45,7 @@ offset_top = 72.0
 offset_right = 72.0
 offset_bottom = 72.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimacaoDoRobo" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6nef6")
 frame_progress = 0.290054
 

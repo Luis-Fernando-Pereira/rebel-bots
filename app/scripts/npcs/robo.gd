@@ -17,6 +17,7 @@ var movimento: Vector2
 
 @export var delay_comando: float = 0.5
 var em_delay = false
+var is_animating = false
 
 const DIRECOES = {
 	Global.direita: Vector2.RIGHT,
@@ -35,6 +36,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Global.play:
+		if !is_animating:
+			is_animating = true
+			$AnimacaoDoRobo.play()
+		
 		if pode_processar_fila():
 			processa_fila()
 			executar_instrucao = true
@@ -85,6 +90,8 @@ func parar():
 		em_delay = true
 		await get_tree().create_timer(delay_comando).timeout
 		em_delay = false
+		$AnimacaoDoRobo.stop()
+		is_animating = false
 
 
 func executar() -> void:
