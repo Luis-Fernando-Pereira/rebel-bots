@@ -9,6 +9,7 @@ var esta_arrastando = false
 enum Comandos{MOVER_PARA_FRENTE,VIRAR}
 const unidade_de_movimento = 125
 var play = false
+var jogo_terminou = false
 
 enum Estado {IDLE, EXECUTANDO, FINALIZADO}
 

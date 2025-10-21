@@ -71,12 +71,12 @@ enum Condicao {
 	OBSTACULO_A_FRENTE
 }
 
-func _init(_nome: String = "", _tipo: TipoComando = TipoComando.MOVER_PARA_FRENTE, _textura: Texture2D = null, _condicao: Condicao = Condicao.NENHUMA, _repetir: int = 1):
-	nome = _nome
-	tipo = _tipo
-	textura = _textura
-	condicao = _condicao
-	repetir = _repetir
+func _init(_nome_comando: String = "", _tipo_comando: TipoComando = TipoComando.MOVER_PARA_FRENTE, _textura_comando: Texture2D = null, _condicao_comando: Condicao = Condicao.NENHUMA, _repetir_comando: int = 1):
+	nome = _nome_comando
+	tipo = _tipo_comando
+	textura = _textura_comando
+	condicao = _condicao_comando
+	repetir = _repetir_comando
 
 
 func duplicar() -> Comando:

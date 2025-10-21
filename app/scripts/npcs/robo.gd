@@ -202,7 +202,7 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 			instrucoes.set(index, Instrucao.new().nova_instrucao(comando))
 
 
-func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
+func _on_area_de_deteccao_de_obstaculos_body_entered(_body: Node2D) -> void:
 	pass
 
 
