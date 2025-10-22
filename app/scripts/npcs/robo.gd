@@ -1,5 +1,7 @@
 extends Area2D
 
+signal morreu
+
 var instrucoes: Array[Instrucao] = []
 var instrucao_em_execucao: Instrucao
 
