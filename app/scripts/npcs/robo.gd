@@ -54,6 +54,12 @@ func _process(delta: float) -> void:
 				
 			else:
 				parar()
+		
+		if not fila_possui_instrucoes() and not em_delay and nao_esta_executando_instrucao():
+			print("chegou")
+			print(instrucoes)
+			Global.play = false
+			Global.jogo_terminou = true
 
 
 func pode_processar_fila() -> bool:
@@ -61,10 +67,11 @@ func pode_processar_fila() -> bool:
 
 
 func fila_possui_instrucoes() -> bool:
-	if instrucoes:
-		return true
+	for instrucao in instrucoes:
+		if instrucao != null:
+			return true
+	
 	return false
-
 
 func nao_esta_executando_instrucao() -> bool:
 	return instrucao_em_execucao == null
@@ -101,13 +108,16 @@ func executar() -> void:
 
 
 func processa_fila() -> void:
+	
 	if fila_possui_instrucoes():
 		while instrucoes.size() > 0:
 			instrucao_em_execucao = instrucoes.pop_front()
 			
 			if instrucao_em_execucao != null:
-				
 				return
+	else:
+		Global.play = false
+		Global.jogo_terminou = true
 
 
 func preparar_para_execucao():
@@ -202,7 +212,7 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 			instrucoes.set(index, Instrucao.new().nova_instrucao(comando))
 
 
-func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
+func _on_area_de_deteccao_de_obstaculos_body_entered(_body: Node2D) -> void:
 	pass
 
 
