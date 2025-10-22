@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cpg1qtsp0mn63" path="res://app/scenes/levels/obstaculos.tscn" id="4_ptj7q"]
 [ext_resource type="PackedScene" uid="uid://ydt03gyn157p" path="res://app/scenes/levels/area_de_vitoria.tscn" id="5_0v0g1"]
 [ext_resource type="PackedScene" uid="uid://d37sayxci0ih3" path="res://app/scenes/ui/caixa.tscn" id="6_fr352"]
-[ext_resource type="PackedScene" uid="uid://2c7im1uovx5s" path="res://app/scenes/ui/start_robot_button.tscn" id="7_5uwpk"]
+[ext_resource type="PackedScene" uid="uid://2c7im1uovx5s" path="res://app/scenes/ui/HUD.tscn" id="7_5uwpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pdej"]
 texture = ExtResource("1_qfuhp")
