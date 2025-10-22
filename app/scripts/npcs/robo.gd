@@ -3,8 +3,6 @@ extends Area2D
 var instrucoes: Array[Instrucao] = []
 var instrucao_em_execucao: Instrucao
 
-var fabrica_instrucao: Instrucao = Instrucao.new()
-
 var posicao_futura = null
 var direcao:= Vector2.RIGHT
 @export var velocidade := 100
@@ -17,8 +15,9 @@ var executar_instrucao = false
 var pos_pre_comando: Vector2
 var movimento: Vector2
 
-@export var delay_comando: float = 1.0
+@export var delay_comando: float = 0.5
 var em_delay = false
+var is_animating = false
 
 const DIRECOES = {
 	Global.direita: Vector2.RIGHT,
@@ -37,6 +36,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Global.play:
+		if !is_animating:
+			is_animating = true
+			$AnimacaoDoRobo.play()
+		
 		if pode_processar_fila():
 			processa_fila()
 			executar_instrucao = true
@@ -48,9 +51,15 @@ func _process(delta: float) -> void:
 			
 			if nao_esta_na_posicao_futura(delta):
 				mover(delta)
-				print(position)
+				
 			else:
 				parar()
+		
+		if not fila_possui_instrucoes() and not em_delay and nao_esta_executando_instrucao():
+			print("chegou")
+			print(instrucoes)
+			Global.play = false
+			Global.jogo_terminou = true
 
 
 func pode_processar_fila() -> bool:
@@ -58,10 +67,11 @@ func pode_processar_fila() -> bool:
 
 
 func fila_possui_instrucoes() -> bool:
-	if instrucoes:
-		return true
+	for instrucao in instrucoes:
+		if instrucao != null:
+			return true
+	
 	return false
-
 
 func nao_esta_executando_instrucao() -> bool:
 	return instrucao_em_execucao == null
@@ -85,10 +95,10 @@ func parar():
 		
 		# marca que entrou em delay
 		em_delay = true
-		print("1")
 		await get_tree().create_timer(delay_comando).timeout
-		print("2")
 		em_delay = false
+		$AnimacaoDoRobo.stop()
+		is_animating = false
 
 
 func executar() -> void:
@@ -98,13 +108,16 @@ func executar() -> void:
 
 
 func processa_fila() -> void:
+	
 	if fila_possui_instrucoes():
 		while instrucoes.size() > 0:
 			instrucao_em_execucao = instrucoes.pop_front()
 			
 			if instrucao_em_execucao != null:
-				
 				return
+	else:
+		Global.play = false
+		Global.jogo_terminou = true
 
 
 func preparar_para_execucao():
@@ -114,7 +127,6 @@ func preparar_para_execucao():
 		Comando.TipoComando.VIRAR:
 			virar()
 		Comando.TipoComando.PEGAR:
-			
 			pegar()
 		Comando.TipoComando.LARGAR:
 			largar()
@@ -122,39 +134,39 @@ func preparar_para_execucao():
 
 func mover_frente():
 	var passos = instrucao_em_execucao.comando.repetir * Global.unidade_de_movimento
-	var deslocamento = DIRECOES[direcao] * passos * modificador_direcao
-	posicao_futura = pos_pre_comando + deslocamento
+	var deslocamento = direcao * passos * modificador_direcao  # agora usa Vector2 direto
 	
-	
-	
-	var direcao_mov = deslocamento.normalized()
-	movimento = direcao_mov * velocidade
-	
-	
+	movimento = deslocamento.normalized() * velocidade  # velocidade constante
+	posicao_futura = position + deslocamento
 
 
 func virar():
+	print("Esquerda:",Global.Direcoes.ESQUERDA)
+	print("Direita:",Global.Direcoes.DIREITA)
+	print("Cima:",Global.Direcoes.CIMA)
+	print("Baixo:",Global.Direcoes.BAIXO)
+	print("direção atual:",instrucao_em_execucao.comando.direcao)
+	print("",instrucao_em_execucao.comando.direcao)
 	match instrucao_em_execucao.comando.direcao:
 		Global.Direcoes.ESQUERDA:
-			direcao = Global.esquerda
+			direcao = Vector2.LEFT
 		Global.Direcoes.DIREITA:
-			direcao = Global.direita
+			direcao = Vector2.RIGHT
 		Global.Direcoes.CIMA:
-			direcao = Global.cima
+			direcao = Vector2.UP
 		Global.Direcoes.BAIXO:
-			direcao = Global.baixo
+			direcao = Vector2.DOWN
+
 	
 	
 
 
 func pegar():
-	print(objeto_carregado, objetos_proximos.is_empty())
 	movimento = Vector2.ZERO
 	if objeto_carregado == null and not objetos_proximos.is_empty():
 		var objeto_a_pegar = objetos_proximos[0]
 		
 		if objeto_a_pegar.is_in_group("pegavel"):
-			print("Pegando o objeto: ", objeto_a_pegar.name)
 			
 			objeto_carregado = objeto_a_pegar
 			
@@ -169,7 +181,6 @@ func pegar():
 
 func largar():
 	if objeto_carregado != null:
-		print("Largando o objeto: ", objeto_carregado.name)
 		
 		var objeto_a_largar = objeto_carregado
 		var cena_principal = get_tree().current_scene
@@ -198,21 +209,18 @@ func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 		var comando = lista_de_comandos.get(index)
 		
 		if comando != null:
-			instrucoes.set(index, fabrica_instrucao.nova_instrucao(comando))
+			instrucoes.set(index, Instrucao.new().nova_instrucao(comando))
 
 
-func _on_area_de_deteccao_de_obstaculos_body_entered(body: Node2D) -> void:
+func _on_area_de_deteccao_de_obstaculos_body_entered(_body: Node2D) -> void:
 	pass
 
 
 func _on_area_de_interacao_area_entered(area: Area2D) -> void:
-	print(area, objetos_proximos)
 	if area.is_in_group("pegavel") and not area in objetos_proximos:
 		objetos_proximos.append(area)
-		print("Objeto pegavel detectado: ", area.name)
-		
+
 
 func _on_area_de_interacao_area_exited(area: Area2D) -> void:
 	if area in objetos_proximos:
 		objetos_proximos.erase(area)
-		print("Objeto pegavel saiu de alcance: ", area.name)

@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://2c7im1uovx5s"]
+
+[ext_resource type="FontFile" uid="uid://bmsjq0qbtrcc1" path="res://app/assets/fonts/Pixel Game.otf" id="1_1o0sn"]
+[ext_resource type="Script" uid="uid://ci4wwulwk4kjp" path="res://app/scripts/ui/HUD.gd" id="2_ikkfr"]
+[ext_resource type="Script" uid="uid://c5kj7whgtkcc1" path="res://app/scenes/ui/reiniciar_btn.gd" id="3_16d2j"]
+
+[sub_resource type="Theme" id="Theme_ikkfr"]
+default_font = ExtResource("1_1o0sn")
+default_font_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16d2j"]
+bg_color = Color(0.141176, 0.658824, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o0sn"]
+bg_color = Color(0.164706, 0.45098, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlv2c"]
+bg_color = Color(0, 0.724942, 0.217169, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="InputEventKey" id="InputEventKey_ysl1e"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_ag13n"]
+events = [SubResource("InputEventKey_ysl1e")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikkfr"]
+bg_color = Color(0.705882, 0.796078, 0.00784314, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqr3d"]
+bg_color = Color(0, 0.113725, 0.898039, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hju6d"]
+bg_color = Color(0, 0.113725, 0.596078, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij6uk"]
+bg_color = Color(0, 0.113725, 0.741176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+theme = SubResource("Theme_ikkfr")
+script = ExtResource("2_ikkfr")
+
+[node name="Iniciar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 576.0
+offset_top = 480.0
+offset_right = 704.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1o0sn")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_16d2j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_16d2j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1o0sn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tlv2c")
+shortcut = SubResource("Shortcut_ag13n")
+text = "Iniciar"
+
+[node name="Reiniciar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 568.0
+offset_top = 480.0
+offset_right = 716.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_1o0sn")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover = SubResource("StyleBoxFlat_ikkfr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ikkfr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ikkfr")
+text = "Reiniciar"
+script = ExtResource("3_16d2j")
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 544.0
+offset_right = 716.0
+offset_bottom = 592.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqr3d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hju6d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij6uk")
+text = "Voltar ao Menu"
+
+[connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

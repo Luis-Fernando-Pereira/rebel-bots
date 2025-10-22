@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rebel Bots"
-run/main_scene="uid://cc06scmcpveuo"
+run/main_scene="uid://cg0uva3uqx0j0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://app/assets/graphics/items/icon.svg"
 
@@ -30,6 +30,8 @@ window/stretch/mode="canvas_items"
 soltavel=""
 comando=""
 pegavel=""
+colidivel=""
+vitoria=""
 
 [input]
 

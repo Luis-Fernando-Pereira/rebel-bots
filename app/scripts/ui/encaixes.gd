@@ -52,4 +52,3 @@ func alterar_lista_de_encaixe(encaixe: int, comando: Comando) -> void:
 func _on_button_pressed() -> void:
 	visible = false
 	z_index = z_index_original
-	Global.play = true

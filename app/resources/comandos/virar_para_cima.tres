@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://be0k86slvktsa"]
 
 [ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_k7yrk"]
-[ext_resource type="Texture2D" uid="uid://bnc5i6c56rj3x" path="res://app/assets/graphics/characters/ballbot/3/ballorange1.png" id="1_k2562"]
+[ext_resource type="Texture2D" uid="uid://c07pk8v0ku56l" path="res://app/assets/graphics/items/ArrowUp.png" id="1_k2562"]
 
 [resource]
 script = ExtResource("1_k7yrk")

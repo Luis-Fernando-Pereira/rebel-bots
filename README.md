@@ -1,5 +1,11 @@
-# rebel-bots
-	Pojeto de desenvolvimeto de jogo educacional em 2D com o intuito de contruibuir com a comunidade reginal de Joinville/SC
+# Participantes
+	Gustavo de Souza
+	Leonardo Lotério Lima
+	Lucas Honorato
+	Luis Fernando Pereira
+	Miguel Angel Balladares Huertas
+	Miguel Angel Dufloth Filho
+
 
 # Ferramentas:
 	Godot engine v4.41

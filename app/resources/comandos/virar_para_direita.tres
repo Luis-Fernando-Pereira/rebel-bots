@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Comando" load_steps=3 format=3 uid="uid://wlddsj8v1boj"]
 
+[ext_resource type="Texture2D" uid="uid://5j05hlmr1roy" path="res://app/assets/graphics/items/ArrowRight.png" id="1_0b4sa"]
 [ext_resource type="Script" uid="uid://dsfujhsaybp18" path="res://app/scripts/resources/comando.gd" id="1_8v2l8"]
-[ext_resource type="Texture2D" uid="uid://d3lr70yfyxbrj" path="res://app/assets/graphics/characters/ballbot/2/ballpurple1.png" id="2_0b4sa"]
 
 [resource]
 script = ExtResource("1_8v2l8")
 _nome = "Virar Para Direita"
 _tipo = 1
-_textura = ExtResource("2_0b4sa")
+_textura = ExtResource("1_0b4sa")
 _condicao = 0
 _repetir = 1
 _direcao = 1
