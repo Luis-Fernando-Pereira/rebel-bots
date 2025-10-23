@@ -7,12 +7,13 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_start_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://app/scenes/levels/nivel01.tscn")
+	Global.nivel_atual = Global.niveis[0]
+	get_tree().change_scene_to_file("res://app/scenes/levels/"+Global.nivel_atual)
 
 
 func _on_credits_btn_pressed() -> void:
@@ -20,4 +21,4 @@ func _on_credits_btn_pressed() -> void:
 
 
 func _on_quit_btn_pressed() -> void:
-	get_tree().quit()
+	pass

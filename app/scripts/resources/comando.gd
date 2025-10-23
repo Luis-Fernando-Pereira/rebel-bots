@@ -46,7 +46,7 @@ var direcao: Global.Direcoes:
 	get:
 		return _direcao
 	set(valor):
-		if valor:
+		if valor != null:
 			_direcao = valor
 		else:
 			_direcao = Global.Direcoes.DIREITA 
@@ -71,12 +71,12 @@ enum Condicao {
 	OBSTACULO_A_FRENTE
 }
 
-func _init(_nome: String = "", _tipo: TipoComando = TipoComando.MOVER_PARA_FRENTE, _textura: Texture2D = null, _condicao: Condicao = Condicao.NENHUMA, _repetir: int = 1):
-	nome = _nome
-	tipo = _tipo
-	textura = _textura
-	condicao = _condicao
-	repetir = _repetir
+func _init(_nome_comando: String = "", _tipo_comando: TipoComando = TipoComando.MOVER_PARA_FRENTE, _textura_comando: Texture2D = null, _condicao_comando: Condicao = Condicao.NENHUMA, _repetir_comando: int = 1):
+	nome = _nome_comando
+	tipo = _tipo_comando
+	textura = _textura_comando
+	condicao = _condicao_comando
+	repetir = _repetir_comando
 
 
 func duplicar() -> Comando:
@@ -87,8 +87,8 @@ func duplicar() -> Comando:
 		_condicao,
 		_repetir
 	)
-	novo.direcao = direcao
-	novo.obstaculo_a_frente = obstaculo_a_frente
-	novo.executar_se_condicao_verdadeira = executar_se_condicao_verdadeira
-	novo.executar_se_condicao_falsa = executar_se_condicao_falsa
+	novo.direcao = self.direcao
+	novo.obstaculo_a_frente = self.obstaculo_a_frente
+	novo.executar_se_condicao_verdadeira = self.executar_se_condicao_verdadeira
+	novo.executar_se_condicao_falsa = self.executar_se_condicao_falsa
 	return novo

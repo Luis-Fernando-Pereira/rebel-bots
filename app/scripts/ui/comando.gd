@@ -16,6 +16,7 @@ var clicou_pos: Vector2
 var arrastando = false
 
 func _ready():
+	$Control.z_index = 3
 	if comando != null: 
 		if comando.nome:
 			$Control/Titulo.text = comando.nome
@@ -49,16 +50,17 @@ func _process(_delta):
 					encaixar_comando()
 			else:
 				alternar_ui()
-
+				
+			arrastavel = false
 
 func encaixar_comando():
-	comando_encaixado.emit(comando)
+	comando_encaixado.emit(comando.duplicar())
 
 func _on_area_2d_mouse_entered() -> void:
 	if not Global.esta_arrastando:
 		arrastavel = true
 		scale = Vector2(1.05, 1.05)
-		z_index = 4
+		z_index = 2
 
 func _on_area_2d_mouse_exited() -> void:
 	if not Global.esta_arrastando:
@@ -87,7 +89,6 @@ func alternar_ui() -> void:
 	$Control.visible = !$Control.visible
 	
 	if comando.tipo == Comando.TipoComando.MOVER_PARA_FRENTE:
-		print("visivel")
 		$Control/SpinBox.visible = true
 		$Control/InputLabel.visible = true
 	else:
