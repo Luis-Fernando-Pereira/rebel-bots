@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cgqnolugfnrtn"]
+[gd_scene load_steps=11 format=4 uid="uid://cgqnolugfnrtn"]
 
 [ext_resource type="Script" uid="uid://dv4yedv5wqq7t" path="res://app/scenes/levels/nivel_01.gd" id="1_5uwpk"]
 [ext_resource type="Texture2D" uid="uid://cari0aa4rxf1i" path="res://app/assets/graphics/environment/chao.png" id="1_qfuhp"]
@@ -90,13 +90,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_0pdej")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e06fc"]
-size = Vector2(1.00001, 1280)
-
-[node name="Nivel01" type="Node2D" node_paths=PackedStringArray("robo", "tela_game_over", "area_vitoria")]
+[node name="Nivel01" type="Node2D" node_paths=PackedStringArray("robo", "area_vitoria")]
 script = ExtResource("1_5uwpk")
 robo = NodePath("Robo")
-tela_game_over = NodePath("FimDeJogo")
 area_vitoria = NodePath("AreaDeVitoria")
 proxima_fase = "res://app/scenes/levels/nivel02.tscn"
 
@@ -121,25 +117,19 @@ position = Vector2(656, 497)
 [node name="AreaDeObstaculo3" parent="." instance=ExtResource("4_ptj7q")]
 position = Vector2(576, 448)
 
-[node name="AreaDeObstaculo4" parent="." instance=ExtResource("4_ptj7q")]
-position = Vector2(593, 239)
-
-[node name="AreaDeObstaculo5" parent="." instance=ExtResource("4_ptj7q")]
-position = Vector2(209, 496)
-
 [node name="AreaDeObstaculo6" parent="." instance=ExtResource("4_ptj7q")]
 position = Vector2(447, 448)
 
 [node name="AreaDeObstaculo7" parent="." instance=ExtResource("4_ptj7q")]
 position = Vector2(576, 192)
 
-[node name="AreaDeObstaculo4" parent="." instance=ExtResource("4_ptj7q")]
+[node name="AreaDeObstaculo8" parent="." instance=ExtResource("4_ptj7q")]
 position = Vector2(447, 192)
 
-[node name="AreaDeObstaculo5" parent="." instance=ExtResource("4_ptj7q")]
+[node name="AreaDeObstaculo9" parent="." instance=ExtResource("4_ptj7q")]
 position = Vector2(192, 448)
 
-[node name="AreaDeObstaculo2" parent="." instance=ExtResource("4_ptj7q")]
+[node name="AreaDeObstaculo10" parent="." instance=ExtResource("4_ptj7q")]
 position = Vector2(320, 448)
 
 [node name="AreaDeVitoria" parent="." instance=ExtResource("5_0v0g1")]
