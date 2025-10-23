@@ -60,6 +60,7 @@ shape = SubResource("RectangleShape2D_07dra")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="lista_de_comandos_alterado" from="Encaxes" to="." method="_on_encaxes_lista_de_comandos_alterado"]
+[connection signal="mouse_exited" from="Encaxes" to="." method="_on_encaxes_mouse_exited"]
 [connection signal="area_entered" from="AreaDeDeteccaoDeObstaculos" to="." method="_on_area_de_interacao_area_entered"]
 [connection signal="area_exited" from="AreaDeDeteccaoDeObstaculos" to="." method="_on_area_de_interacao_area_exited"]
 [connection signal="body_entered" from="AreaDeDeteccaoDeObstaculos" to="." method="_on_area_de_deteccao_de_obstaculos_body_entered"]
