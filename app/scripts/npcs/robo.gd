@@ -123,6 +123,7 @@ func processa_fila() -> void:
 
 
 func preparar_para_execucao():
+	posicao_futura = position
 	match instrucao_em_execucao.comando.tipo:
 		Comando.TipoComando.MOVER_PARA_FRENTE:
 			mover_frente()
