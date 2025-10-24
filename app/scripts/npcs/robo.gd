@@ -1,5 +1,7 @@
 extends Area2D
 
+signal morreu
+
 var instrucoes: Array[Instrucao] = []
 var instrucao_em_execucao: Instrucao
 
@@ -121,6 +123,7 @@ func processa_fila() -> void:
 
 
 func preparar_para_execucao():
+	posicao_futura = position
 	match instrucao_em_execucao.comando.tipo:
 		Comando.TipoComando.MOVER_PARA_FRENTE:
 			mover_frente()
@@ -197,11 +200,17 @@ func largar():
 
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseMotion and Global.esta_arrastando:
+		altera_visibilidade_paleta_de_comandos()
+	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if !$Encaxes.visible:
+		altera_visibilidade_paleta_de_comandos()
+
+
+func altera_visibilidade_paleta_de_comandos():
+	if !$Encaxes.visible:
 			$Encaxes.visible = true
 			$Encaxes.z_index += z_index + 1
-
 
 func _on_encaxes_lista_de_comandos_alterado(lista_de_comandos: Variant) -> void:
 	
@@ -224,3 +233,8 @@ func _on_area_de_interacao_area_entered(area: Area2D) -> void:
 func _on_area_de_interacao_area_exited(area: Area2D) -> void:
 	if area in objetos_proximos:
 		objetos_proximos.erase(area)
+
+
+func _on_encaxes_mouse_exited() -> void:
+	if Global.esta_arrastando:
+		altera_visibilidade_paleta_de_comandos()

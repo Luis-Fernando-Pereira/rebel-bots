@@ -1,4 +1,4 @@
 extends Button
 
-func _on_pressed() -> void:
-	get_tree().quit() # Replace with function body.
+func _on_SairButton_pressed():
+	get_tree().quit()

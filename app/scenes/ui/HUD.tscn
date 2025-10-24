@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2c7im1uovx5s"]
+[gd_scene load_steps=16 format=3 uid="uid://2c7im1uovx5s"]
 
 [ext_resource type="FontFile" uid="uid://bmsjq0qbtrcc1" path="res://app/assets/fonts/Pixel Game.otf" id="1_1o0sn"]
 [ext_resource type="Script" uid="uid://ci4wwulwk4kjp" path="res://app/scripts/ui/HUD.gd" id="2_ikkfr"]
@@ -35,6 +35,39 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqr3d"]
+bg_color = Color(0, 0.113725, 0.898039, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hju6d"]
+bg_color = Color(0, 0.113725, 0.596078, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij6uk"]
+bg_color = Color(0, 0.113725, 0.741176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_ij6uk"]
+font = ExtResource("1_1o0sn")
+font_size = 70
+font_color = Color(0, 0.835294, 0.298039, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hju6d"]
+font = ExtResource("1_1o0sn")
+font_size = 70
+font_color = Color(1, 0, 0, 1)
+
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -44,8 +77,7 @@ mouse_filter = 2
 theme = SubResource("Theme_ikkfr")
 script = ExtResource("2_ikkfr")
 
-[node name="Iniciar" type="Button" parent="."]
-visible = false
+[node name="BotaoIniciar" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 576.0
@@ -63,7 +95,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tlv2c")
 shortcut = SubResource("Shortcut_ag13n")
 text = "Iniciar"
 
-[node name="Reiniciar" type="Button" parent="."]
+[node name="BotaoReiniciar" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 568.0
@@ -80,5 +112,47 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ikkfr")
 text = "Reiniciar"
 script = ExtResource("3_16d2j")
 
-[connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]
-[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
+[node name="BotaoMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 544.0
+offset_right = 716.0
+offset_bottom = 592.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_iqr3d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hju6d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij6uk")
+text = "Voltar ao Menu"
+
+[node name="LabelNivelConcluido" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nivel concluído!"
+label_settings = SubResource("LabelSettings_ij6uk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelNivelFalhado" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "VOCÊ PERDEU, TENTE NOVAMENTE!"
+label_settings = SubResource("LabelSettings_hju6d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BotaoIniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="BotaoReiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_menu_pressed"]
