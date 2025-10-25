@@ -1,0 +1,246 @@
+[gd_scene load_steps=11 format=4 uid="uid://boe4683cswm3w"]
+
+[ext_resource type="Script" uid="uid://dv4yedv5wqq7t" path="res://app/scenes/levels/nivel_01.gd" id="1_ixs8h"]
+[ext_resource type="Texture2D" uid="uid://cari0aa4rxf1i" path="res://app/assets/graphics/environment/chao.png" id="2_3tmxi"]
+[ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="3_oevoa"]
+[ext_resource type="PackedScene" uid="uid://b16tfqsyvmt8s" path="res://app/scenes/ui/comandos.tscn" id="4_pcpqd"]
+[ext_resource type="PackedScene" uid="uid://cpg1qtsp0mn63" path="res://app/scenes/levels/obstaculos.tscn" id="5_165rm"]
+[ext_resource type="PackedScene" uid="uid://ydt03gyn157p" path="res://app/scenes/levels/area_de_vitoria.tscn" id="6_f5r6g"]
+[ext_resource type="PackedScene" uid="uid://d37sayxci0ih3" path="res://app/scenes/ui/caixa.tscn" id="7_tqn31"]
+[ext_resource type="PackedScene" uid="uid://2c7im1uovx5s" path="res://app/scenes/ui/HUD.tscn" id="8_rfcjq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pdej"]
+texture = ExtResource("2_3tmxi")
+texture_region_size = Vector2i(32, 32)
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+32:1/0 = 0
+33:1/0 = 0
+34:1/0 = 0
+35:1/0 = 0
+1:2/0 = 0
+4:2/0 = 0
+6:2/0 = 0
+9:2/0 = 0
+14:2/0 = 0
+32:2/0 = 0
+1:3/0 = 0
+9:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+1:4/0 = 0
+9:4/0 = 0
+13:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+1:6/0 = 0
+9:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+1:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+9:8/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yhi0f"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_0pdej")
+
+[node name="Nivel03" type="Node2D" node_paths=PackedStringArray("robo", "area_vitoria")]
+script = ExtResource("1_ixs8h")
+robo = NodePath("Robo")
+area_vitoria = NodePath("AreaDeVitoria")
+proxima_fase = "res://app/scenes/levels/nivel02.tscn"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAEAAAAiAAEAAAAAAAIAAAAiAAEAAAAAAAMAAAAiAAEAAAAAAAQAAAAiAAEAAAABAAAAAAAiAAEAAAABAAEAAAAiAAEAAAABAAIAAAAiAAEAAAABAAMAAAAiAAEAAAABAAQAAAAiAAEAAAACAAAAAAAiAAEAAAACAAEAAAAiAAEAAAACAAIAAAAiAAEAAAACAAMAAAAiAAEAAAACAAQAAAAiAAEAAAADAAAAAAAiAAEAAAADAAEAAAAiAAEAAAADAAIAAAAiAAEAAAADAAMAAAAiAAEAAAADAAQAAAAiAAEAAAAEAAAAAAAiAAEAAAAEAAIAAAAiAAEAAAAEAAMAAAAiAAEAAAAEAAQAAAAiAAEAAAAFAAAAAAAiAAEAAAAFAAEAAAAiAAEAAAAFAAIAAAAiAAEAAAAFAAMAAAAiAAEAAAAFAAQAAAAiAAEAAAAGAAAAAAAiAAEAAAAGAAEAAAAiAAEAAAAGAAIAAAAiAAEAAAAGAAMAAAAiAAEAAAAGAAQAAAAiAAEAAAAHAAAAAAAiAAEAAAAHAAEAAAAiAAEAAAAHAAIAAAAiAAEAAAAHAAMAAAAiAAEAAAAHAAQAAAAiAAEAAAAIAAAAAAAiAAEAAAAIAAEAAAAiAAEAAAAIAAIAAAAiAAEAAAAIAAMAAAAiAAEAAAAIAAQAAAAiAAEAAAAJAAAAAAAiAAEAAAAJAAEAAAAiAAEAAAAJAAIAAAAiAAEAAAAJAAMAAAAiAAEAAAAJAAQAAAAiAAEAAAAEAAEAAAAiAAEAAAAAAAAAAAAiAAEAAAAAAAUAAAAiAAEAAAABAAUAAAAiAAEAAAACAAUAAAAiAAEAAAADAAUAAAAiAAEAAAAEAAUAAAAiAAEAAAAFAAUAAAAiAAEAAAAGAAUAAAAiAAEAAAAHAAUAAAAiAAEAAAAIAAUAAAAiAAEAAAAJAAUAAAAiAAEAAAA=")
+tile_set = SubResource("TileSet_yhi0f")
+
+[node name="Robo" parent="." instance=ExtResource("3_oevoa")]
+position = Vector2(960, 192)
+
+[node name="Comandos" parent="." instance=ExtResource("4_pcpqd")]
+z_index = 2
+position = Vector2(480, 32)
+
+[node name="AreaDeObstaculo" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(592, 128)
+
+[node name="AreaDeObstaculo3" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 256)
+
+[node name="AreaDeObstaculo6" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 128)
+
+[node name="AreaDeObstaculo7" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(488, 128)
+
+[node name="AreaDeObstaculo8" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 128)
+
+[node name="AreaDeObstaculo9" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(696, 128)
+
+[node name="AreaDeObstaculo10" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(792, 128)
+
+[node name="AreaDeVitoria" parent="." instance=ExtResource("6_f5r6g")]
+position = Vector2(320, 584)
+
+[node name="Caixa" parent="." instance=ExtResource("7_tqn31")]
+position = Vector2(448, 440)
+
+[node name="AreaDeObstaculo4" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(752, 648)
+
+[node name="AreaDeObstaculo5" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 648)
+
+[node name="AreaDeObstaculo11" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 584)
+
+[node name="AreaDeObstaculo12" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 456)
+
+[node name="AreaDeObstaculo14" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 336)
+
+[node name="AreaDeObstaculo16" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(768, 336)
+
+[node name="AreaDeObstaculo17" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(640, 336)
+
+[node name="AreaDeObstaculo18" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(512, 336)
+
+[node name="AreaDeObstaculo19" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(512, 296)
+
+[node name="AreaDeObstaculo20" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(512, 256)
+
+[node name="AreaDeObstaculo21" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(640, 256)
+
+[node name="AreaDeObstaculo22" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(760, 256)
+
+[node name="AreaDeObstaculo23" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 440)
+
+[node name="AreaDeObstaculo24" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 280)
+
+[node name="AreaDeObstaculo25" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 208)
+
+[node name="AreaDeObstaculo26" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 648)
+
+[node name="AreaDeObstaculo27" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(464, 648)
+
+[node name="AreaDeObstaculo28" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(616, 648)
+
+[node name="AreaDeObstaculo31" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(768, 512)
+
+[node name="AreaDeObstaculo32" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(696, 512)
+
+[node name="AreaDeObstaculo33" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(544, 512)
+
+[node name="AreaDeObstaculo34" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 512)
+
+[node name="AreaDeObstaculo35" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(832, 336)
+
+[node name="AreaDeObstaculo2" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(704, 336)
+
+[node name="AreaDeObstaculo13" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(576, 336)
+
+[node name="AreaDeObstaculo15" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(824, 256)
+
+[node name="AreaDeObstaculo29" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(704, 256)
+
+[node name="AreaDeObstaculo30" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(576, 256)
+
+[node name="AreaDeObstaculo36" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(384, 352)
+
+[node name="AreaDeObstaculo37" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(616, 512)
+
+[node name="AreaDeObstaculo38" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(464, 512)
+
+[node name="AreaDeObstaculo39" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(544, 648)
+
+[node name="AreaDeObstaculo41" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(688, 648)
+
+[node name="AreaDeObstaculo40" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(832, 648)
+
+[node name="AreaDeObstaculo42" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 520)
+
+[node name="AreaDeObstaculo43" parent="." instance=ExtResource("5_165rm")]
+position = Vector2(896, 400)
+
+[node name="HudButtons" parent="." instance=ExtResource("8_rfcjq")]
