@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://besu2iqsf3bgl"]
+
+[ext_resource type="PackedScene" uid="uid://cpg1qtsp0mn63" path="res://app/scenes/levels/obstaculos.tscn" id="1_7wq1q"]
+[ext_resource type="Texture2D" uid="uid://dv1o0ajqwuqqc" path="res://app/assets/graphics/environment/curves.png" id="2_1uxub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6akkn"]
+size = Vector2(123, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms7hx"]
+atlas = ExtResource("2_1uxub")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joftr"]
+atlas = ExtResource("2_1uxub")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nbxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms7hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joftr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("RectangleShape2D_6akkn")
+
+[node name="AreaDeObstaculo" parent="." instance=ExtResource("1_7wq1q")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.999987, -4)
+scale = Vector2(3.875, 3.75)
+sprite_frames = SubResource("SpriteFrames_5nbxw")
+frame_progress = 0.777389

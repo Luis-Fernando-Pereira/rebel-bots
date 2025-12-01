@@ -12,13 +12,35 @@ func _process(_delta: float) -> void:
 
 
 func _on_start_btn_pressed() -> void:
-	Global.nivel_atual = Global.niveis[0]
-	get_tree().change_scene_to_file("res://app/scenes/levels/"+Global.nivel_atual)
+	$StartSound.play()
+	
+	if $Timer.timeout:
+		Global.ir_para_proximo_nivel(get_tree())
 
 
 func _on_credits_btn_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://app/scenes/levels/creditos.tscn")
 
 
 func _on_quit_btn_pressed() -> void:
-	pass
+	get_tree().quit()
+
+
+func _on_start_btn_mouse_entered() -> void:
+	playHoverSound()
+
+
+func _on_quit_btn_mouse_entered() -> void:
+	playHoverSound()
+
+
+func _on_credits_btn_mouse_entered() -> void:
+	playHoverSound()
+
+
+func _on_link_btn_mouse_entered() -> void:
+	playHoverSound()
+
+
+func playHoverSound():
+	$HoverSound.play()

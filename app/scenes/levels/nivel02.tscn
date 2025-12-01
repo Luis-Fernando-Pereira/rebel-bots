@@ -1,13 +1,20 @@
-[gd_scene load_steps=11 format=4 uid="uid://cy1gbelex8dqq"]
+[gd_scene load_steps=39 format=4 uid="uid://cy1gbelex8dqq"]
 
-[ext_resource type="Script" uid="uid://bunaaw6xfkplo" path="res://app/scenes/levels/obstaculo.gd" id="1_dxonp"]
 [ext_resource type="Texture2D" uid="uid://cari0aa4rxf1i" path="res://app/assets/graphics/environment/chao.png" id="1_kyf6d"]
+[ext_resource type="Script" uid="uid://cqahdlr6ciii2" path="res://app/scenes/levels/nivel_02.gd" id="1_n112g"]
 [ext_resource type="PackedScene" uid="uid://4mwy5eq50v75" path="res://app/scenes/npcs/robo.tscn" id="2_dxonp"]
 [ext_resource type="PackedScene" uid="uid://b16tfqsyvmt8s" path="res://app/scenes/ui/comandos.tscn" id="3_ccff2"]
 [ext_resource type="PackedScene" uid="uid://cpg1qtsp0mn63" path="res://app/scenes/levels/obstaculos.tscn" id="4_cpis6"]
 [ext_resource type="PackedScene" uid="uid://ydt03gyn157p" path="res://app/scenes/levels/area_de_vitoria.tscn" id="5_n112g"]
-[ext_resource type="PackedScene" uid="uid://d37sayxci0ih3" path="res://app/scenes/ui/caixa.tscn" id="6_472ta"]
 [ext_resource type="PackedScene" uid="uid://2c7im1uovx5s" path="res://app/scenes/ui/HUD.tscn" id="7_7ygic"]
+[ext_resource type="Texture2D" uid="uid://pqqmgrt7ypkq" path="res://app/assets/graphics/environment/conveyer belt all-0001.png" id="8_dxonp"]
+[ext_resource type="Texture2D" uid="uid://dv1o0ajqwuqqc" path="res://app/assets/graphics/environment/curves.png" id="9_ccff2"]
+[ext_resource type="Texture2D" uid="uid://2ianhevxmdrc" path="res://app/assets/graphics/environment/tank.png" id="10_n112g"]
+[ext_resource type="Texture2D" uid="uid://cfind7s56w6qs" path="res://app/assets/graphics/environment/part-0009.png" id="11_472ta"]
+[ext_resource type="AudioStream" uid="uid://bqcu0pmba6oig" path="res://app/assets/sounds/Strange Worlds.wav" id="12_472ta"]
+[ext_resource type="Script" uid="uid://da2nou53ekxqp" path="res://app/scenes/levels/tutorial3.gd" id="13_cikm5"]
+[ext_resource type="FontFile" uid="uid://bmsjq0qbtrcc1" path="res://app/assets/fonts/Pixel Game.otf" id="14_6gia0"]
+[ext_resource type="Theme" uid="uid://55kbj63ivfxd" path="res://app/scenes/ui/default_btn.tres" id="16_gspu8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pdej"]
 texture = ExtResource("1_kyf6d")
@@ -90,8 +97,151 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_0pdej")
 
-[node name="Level01" type="Node2D"]
-script = ExtResource("1_dxonp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccff2"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpis6"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n112g"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_472ta"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ygic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccff2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpis6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n112g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_472ta")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ygic"]
+atlas = ExtResource("9_ccff2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gia0"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(0, 672, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmyyf"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(32, 672, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cikm5"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(64, 672, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10k02"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(96, 672, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l2vcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gia0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmyyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cikm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10k02")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gspu8"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygymf"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kenx"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muumv"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3fss"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3b"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b04p"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(192, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0c6v"]
+atlas = ExtResource("8_dxonp")
+region = Rect2(224, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8ccg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gspu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygymf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kenx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muumv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3fss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b04p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0c6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_ygymf"]
+default_font = ExtResource("14_6gia0")
+
+[node name="Level02" type="Node2D"]
+script = ExtResource("1_n112g")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(4, 4)
@@ -99,112 +249,239 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAiAAEAAAAAAAIAAAAiAAEAAAAAAAMAAAAiAAE
 tile_set = SubResource("TileSet_yhi0f")
 
 [node name="Robo" parent="." instance=ExtResource("2_dxonp")]
-position = Vector2(320, 585)
+position = Vector2(576, 576)
 
 [node name="Comandos" parent="." instance=ExtResource("3_ccff2")]
 z_index = 2
 position = Vector2(480, 32)
 
 [node name="HudButtons" parent="." instance=ExtResource("7_7ygic")]
-
-[node name="AreaDeObstaculo" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(256, 512)
-
-[node name="AreaDeObstaculo2" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(256, 320)
-
-[node name="AreaDeObstaculo3" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(256, 384)
-
-[node name="AreaDeObstaculo4" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(256, 448)
-
-[node name="AreaDeObstaculo5" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(528, 256)
-
-[node name="AreaDeObstaculo6" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(456, 256)
-
-[node name="AreaDeObstaculo7" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(392, 256)
-
-[node name="AreaDeObstaculo8" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(320, 256)
-
-[node name="AreaDeObstaculo9" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(256, 256)
-
-[node name="AreaDeObstaculo10" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(656, 144)
-
-[node name="AreaDeObstaculo11" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(592, 144)
-
-[node name="AreaDeObstaculo12" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(528, 144)
-
-[node name="AreaDeObstaculo13" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(528, 200)
-
-[node name="AreaDeObstaculo14" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(832, 256)
-
-[node name="AreaDeObstaculo15" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(744, 256)
-
-[node name="AreaDeObstaculo16" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(656, 256)
-
-[node name="AreaDeObstaculo17" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(656, 200)
-
-[node name="AreaDeObstaculo18" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(392, 392)
-
-[node name="AreaDeObstaculo19" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(392, 456)
-
-[node name="AreaDeObstaculo20" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(392, 512)
-
-[node name="AreaDeObstaculo21" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(904, 512)
-
-[node name="AreaDeObstaculo22" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(904, 448)
-
-[node name="AreaDeObstaculo23" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(904, 376)
-
-[node name="AreaDeObstaculo24" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(904, 256)
-
-[node name="AreaDeObstaculo25" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(776, 448)
-
-[node name="AreaDeObstaculo26" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(776, 392)
-
-[node name="AreaDeObstaculo27" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(712, 392)
-
-[node name="AreaDeObstaculo28" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(632, 392)
-
-[node name="AreaDeObstaculo29" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(544, 392)
-
-[node name="AreaDeObstaculo30" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(464, 392)
-
-[node name="AreaDeObstaculo31" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(776, 512)
-
-[node name="AreaDeObstaculo32" parent="." instance=ExtResource("4_cpis6")]
-position = Vector2(904, 320)
-
-[node name="Caixa" parent="." instance=ExtResource("6_472ta")]
-position = Vector2(592, 192)
+visible = false
+top_level = true
 
 [node name="AreaDeVitoria" parent="." instance=ExtResource("5_n112g")]
-position = Vector2(840, 584)
+position = Vector2(1088, 576)
+
+[node name="LimiteEsquerdo" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(-65, 419)
+scale = Vector2(1, 8)
+
+[node name="LimiteDireito" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(1344, 419)
+scale = Vector2(1, 8)
+
+[node name="LimiteInfeioir" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(641, 784)
+scale = Vector2(11, 1)
+
+[node name="obstaculo" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(643, 452)
+scale = Vector2(2, 1)
+
+[node name="obstaculo1" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(705, 640)
+scale = Vector2(1, 2)
+
+[node name="LimiteSuperior" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(641, -64)
+scale = Vector2(11, 1)
+
+[node name="LimiteSuperior2" parent="." instance=ExtResource("4_cpis6")]
+position = Vector2(640, 192)
+scale = Vector2(11, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(708.5, 692)
+scale = Vector2(2.78125, 4.0625)
+sprite_frames = SubResource("SpriteFrames_7ygic")
+autoplay = "default"
+frame = 2
+frame_progress = 0.0492229
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(708.5, 577)
+rotation = 0.000651451
+scale = Vector2(2.78125, 4.0625)
+sprite_frames = SubResource("SpriteFrames_7ygic")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(706.5, 452)
+scale = Vector2(3.65625, 3.75)
+texture = SubResource("AtlasTexture_7ygic")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(588, 452)
+scale = Vector2(3.75, 2.75)
+sprite_frames = SubResource("SpriteFrames_l2vcg")
+autoplay = "default"
+frame = 2
+frame_progress = 0.344217
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(56, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(265, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(370, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(475, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(580, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
+position = Vector2(685, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
+position = Vector2(790, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
+position = Vector2(895, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
+position = Vector2(1000, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
+position = Vector2(1105, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
+position = Vector2(1210, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="."]
+position = Vector2(1315, 192)
+scale = Vector2(3.5, 2.375)
+sprite_frames = SubResource("SpriteFrames_v8ccg")
+autoplay = "default"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(964, 579.375)
+scale = Vector2(1.15385, 1.2399)
+texture = ExtResource("10_n112g")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(960, 656)
+texture = ExtResource("11_472ta")
+
+[node name="Track" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_472ta")
+volume_db = 7.0
+autoplay = true
+
+[node name="Tutorial" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("13_cikm5")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00234926
+anchor_top = 0.0626741
+anchor_right = 1.00235
+anchor_bottom = 1.06267
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.258824)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextoTutorial1" type="RichTextLabel" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425215
+anchor_top = 0.385794
+anchor_right = 0.647612
+anchor_bottom = 0.5
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ygymf")
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("14_6gia0")
+bbcode_enabled = true
+text = "Parabéns por chegar até aqui engenheiro!
+Mas agora começa o verdadeiro desafio. 
+Com todo o conhecimento que você adquiriu até agora, direcione o Robô até a zona de segurança"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PopUpTutorial" type="ColorRect" parent="Tutorial"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.415818
+anchor_top = 0.374652
+anchor_right = 0.653876
+anchor_bottom = 0.590529
+offset_right = 6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.694118)
+metadata/_edit_use_anchors_ = true
+
+[node name="Comecar" type="Button" parent="Tutorial"]
+layout_mode = 0
+anchor_left = 0.585748
+anchor_top = 0.519499
+anchor_right = 0.648395
+anchor_bottom = 0.575209
+offset_right = -6.10352e-05
+theme = ExtResource("16_gspu8")
+text = "Começar"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Tutorial/Comecar" to="Tutorial" method="_on_comecar_pressed"]
