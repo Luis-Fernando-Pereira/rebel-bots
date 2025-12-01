@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://yhcnvc1naveu"]
+
+[ext_resource type="Script" uid="uid://bhv682ok5uxel" path="res://app/scripts/objects/esteira_1_tile.gd" id="1_3gw8k"]
+[ext_resource type="PackedScene" uid="uid://cpg1qtsp0mn63" path="res://app/scenes/levels/obstaculos.tscn" id="1_jasrn"]
+[ext_resource type="Texture2D" uid="uid://pqqmgrt7ypkq" path="res://app/assets/graphics/environment/conveyer belt all-0001.png" id="2_3gw8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy1pu"]
+size = Vector2(94, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27gy3"]
+atlas = ExtResource("2_3gw8k")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmord"]
+atlas = ExtResource("2_3gw8k")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hw15m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27gy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmord")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_3gw8k")
+
+[node name="AreaDeObstaculo" parent="." instance=ExtResource("1_jasrn")]
+position = Vector2(51, 61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48.5, 57.75)
+shape = SubResource("RectangleShape2D_oy1pu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(49, 59)
+scale = Vector2(3.01563, 3.79297)
+sprite_frames = SubResource("SpriteFrames_hw15m")
+frame_progress = 0.660044

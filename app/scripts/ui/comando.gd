@@ -57,6 +57,7 @@ func encaixar_comando():
 	comando_encaixado.emit(comando.duplicar())
 
 func _on_area_2d_mouse_entered() -> void:
+	$HoverSound.play()
 	if not Global.esta_arrastando:
 		arrastavel = true
 		scale = Vector2(1.05, 1.05)

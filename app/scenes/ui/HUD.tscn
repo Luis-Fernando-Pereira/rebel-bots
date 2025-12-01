@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://2c7im1uovx5s"]
+[gd_scene load_steps=19 format=3 uid="uid://2c7im1uovx5s"]
 
 [ext_resource type="FontFile" uid="uid://bmsjq0qbtrcc1" path="res://app/assets/fonts/Pixel Game.otf" id="1_1o0sn"]
 [ext_resource type="Script" uid="uid://ci4wwulwk4kjp" path="res://app/scripts/ui/HUD.gd" id="2_ikkfr"]
 [ext_resource type="Script" uid="uid://c5kj7whgtkcc1" path="res://app/scenes/ui/reiniciar_btn.gd" id="3_16d2j"]
+[ext_resource type="Theme" uid="uid://55kbj63ivfxd" path="res://app/scenes/ui/default_btn.tres" id="3_qqchd"]
+[ext_resource type="AudioStream" uid="uid://776l4mrtr1wp" path="res://app/assets/sounds/Click_2.wav" id="4_hju6d"]
+[ext_resource type="AudioStream" uid="uid://cfo48bvt1i7gh" path="res://app/assets/sounds/Music_Loop_4_Bass.wav" id="5_iqr3d"]
 
 [sub_resource type="Theme" id="Theme_ikkfr"]
 default_font = ExtResource("1_1o0sn")
@@ -77,6 +80,15 @@ mouse_filter = 2
 theme = SubResource("Theme_ikkfr")
 script = ExtResource("2_ikkfr")
 
+[node name="BotaoProximoNivel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 416.0
+offset_right = 720.0
+offset_bottom = 465.0
+theme = ExtResource("3_qqchd")
+text = "Próximo Nível"
+
 [node name="BotaoIniciar" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -148,11 +160,22 @@ offset_top = -120.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Você Falhou!"
+text = "VOCÊ PERDEU, TENTE NOVAMENTE!"
 label_settings = SubResource("LabelSettings_hju6d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hju6d")
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_iqr3d")
+
+[connection signal="mouse_entered" from="BotaoProximoNivel" to="." method="_on_botao_proximo_nivel_mouse_entered"]
+[connection signal="pressed" from="BotaoProximoNivel" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="BotaoIniciar" to="." method="_on_botao_iniciar_mouse_entered"]
 [connection signal="pressed" from="BotaoIniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="mouse_entered" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_mouse_entered"]
 [connection signal="pressed" from="BotaoReiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="mouse_entered" from="BotaoMenu" to="." method="_on_botao_menu_mouse_entered"]
 [connection signal="pressed" from="BotaoMenu" to="." method="_on_menu_pressed"]

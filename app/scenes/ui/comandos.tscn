@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b16tfqsyvmt8s"]
+[gd_scene load_steps=10 format=3 uid="uid://b16tfqsyvmt8s"]
 
 [ext_resource type="PackedScene" uid="uid://bgfsfbdgicquw" path="res://app/scenes/ui/comando.tscn" id="1_t8o6o"]
+[ext_resource type="Script" uid="uid://3xadyit1doki" path="res://app/scenes/ui/comandos.gd" id="1_yjbuv"]
 [ext_resource type="Resource" uid="uid://fkt276hdhsc" path="res://app/resources/comandos/mover.tres" id="2_q70p8"]
 [ext_resource type="Resource" uid="uid://dbs33kmw8h2f8" path="res://app/resources/comandos/virar_para_esquerda.tres" id="3_jlv72"]
 [ext_resource type="Resource" uid="uid://be0k86slvktsa" path="res://app/resources/comandos/virar_para_cima.tres" id="4_q70p8"]
@@ -10,10 +11,11 @@
 [ext_resource type="Resource" uid="uid://dq0v2dlqf81hj" path="res://app/resources/comandos/largar.tres" id="8_6ruxq"]
 
 [node name="Comandos" type="Node2D"]
+script = ExtResource("1_yjbuv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
-offset_right = 352.0
+offset_right = 256.0
 offset_bottom = 64.0
 mouse_filter = 2
 
@@ -38,9 +40,11 @@ position = Vector2(224, 32)
 comando = ExtResource("6_iw5g1")
 
 [node name="Pegar" parent="." instance=ExtResource("1_t8o6o")]
+visible = false
 position = Vector2(272, 32)
 comando = ExtResource("7_abimv")
 
 [node name="Largar" parent="." instance=ExtResource("1_t8o6o")]
+visible = false
 position = Vector2(320, 32)
 comando = ExtResource("8_6ruxq")

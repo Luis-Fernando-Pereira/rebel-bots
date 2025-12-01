@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ydt03gyn157p"]
 
 [ext_resource type="Script" uid="uid://7bb0dykusffx" path="res://area_de_vitoria.gd" id="1_nrod1"]
-[ext_resource type="Texture2D" uid="uid://d30ib2eykfu6x" path="res://app/assets/graphics/environment/botao_verde.png" id="2_kbsej"]
+[ext_resource type="AudioStream" uid="uid://doiq6vrqj1cn0" path="res://app/assets/sounds/Music_Loop_2_Full.wav" id="2_kbsej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsej"]
-size = Vector2(32, 32)
+size = Vector2(112, 96)
 
 [node name="AreaDeVitoria" type="Area2D" groups=["vitoria"]]
 script = ExtResource("1_nrod1")
@@ -12,9 +12,22 @@ script = ExtResource("1_nrod1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kbsej")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["vitoria"]]
-position = Vector2(-5.25, -32)
-scale = Vector2(3.57813, 4.03735)
-texture = ExtResource("2_kbsej")
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -58.0
+offset_right = 64.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 0.152941)
+
+[node name="VitoriaSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kbsej")
+volume_db = 5.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

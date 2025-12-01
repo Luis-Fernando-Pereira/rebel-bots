@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg0uva3uqx0j0"]
+[gd_scene load_steps=11 format=3 uid="uid://cg0uva3uqx0j0"]
 
 [ext_resource type="Script" uid="uid://dtdv1g10j7o5b" path="res://app/scenes/ui/title_screen.gd" id="1_gpg86"]
-[ext_resource type="Texture2D" uid="uid://bqon0xehq5j00" path="res://app/assets/graphics/background/Background Props.png" id="1_xxjk4"]
 [ext_resource type="Texture2D" uid="uid://6nx21y4255rg" path="res://app/assets/graphics/background/Buildings.png" id="2_fgmnc"]
+[ext_resource type="Texture2D" uid="uid://xrddkssob5mg" path="res://app/assets/graphics/background/level_bg.png" id="2_gpg86"]
 [ext_resource type="Texture2D" uid="uid://byx76wrsgoll" path="res://app/assets/graphics/characters/pegando_direita.png" id="2_kxjdg"]
+[ext_resource type="FontFile" uid="uid://bmsjq0qbtrcc1" path="res://app/assets/fonts/Pixel Game.otf" id="3_8boxs"]
 [ext_resource type="Theme" uid="uid://55kbj63ivfxd" path="res://app/scenes/ui/default_btn.tres" id="3_bs38h"]
+[ext_resource type="AudioStream" uid="uid://xpp3mf3uxolt" path="res://app/assets/sounds/Glitch_3.wav" id="7_43wyf"]
+[ext_resource type="AudioStream" uid="uid://776l4mrtr1wp" path="res://app/assets/sounds/Click_2.wav" id="8_h2gd8"]
+[ext_resource type="AudioStream" uid="uid://bqcu0pmba6oig" path="res://app/assets/sounds/Strange Worlds.wav" id="9_62bd8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_43wyf"]
+font = ExtResource("3_8boxs")
+font_size = 60
+font_color = Color(1, 0, 0, 1)
+outline_size = 8
+outline_color = Color(0.0588235, 0, 0.486275, 1)
+shadow_size = 7
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -16,13 +28,12 @@ grow_vertical = 2
 script = ExtResource("1_gpg86")
 
 [node name="bg" type="TextureRect" parent="."]
-visible = false
 layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_xxjk4")
+texture = ExtResource("2_gpg86")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -41,8 +52,15 @@ size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "REBEL BOTS"
+label_settings = SubResource("LabelSettings_43wyf")
+horizontal_alignment = 1
 
 [node name="emote" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
@@ -66,6 +84,12 @@ layout_mode = 2
 theme = ExtResource("3_bs38h")
 text = "Quit Game"
 
+[node name="link_btn" type="LinkButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "         LINK PARA FEEDBACK"
+underline = 1
+uri = "https://docs.google.com/forms/d/e/1FAIpQLSe52Wkuk7H2wP8dzop1DwB4PIjyBAbY0bK0iAQa6-aWFU3m9w/viewform?usp=dialog"
+
 [node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
@@ -73,6 +97,23 @@ texture = ExtResource("2_kxjdg")
 expand_mode = 2
 flip_h = true
 
+[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_43wyf")
+
+[node name="HoverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_h2gd8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Track" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_62bd8")
+volume_db = 7.648
+autoplay = true
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/link_btn" to="." method="_on_link_btn_mouse_entered"]

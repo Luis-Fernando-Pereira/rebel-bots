@@ -38,7 +38,9 @@ func _process(delta: float) -> void:
 	if Global.play:
 		if !is_animating:
 			is_animating = true
+			$SomHelice.play(5)
 			$AnimacaoDoRobo.play()
+			$Encaxes.visible = false
 		
 		if pode_processar_fila():
 			processa_fila()
@@ -60,6 +62,8 @@ func _process(delta: float) -> void:
 			print(instrucoes)
 			Global.play = false
 			Global.jogo_terminou = true
+			$SomHelice.stop()
+			$AnimacaoDoRobo.stop()
 
 
 func pode_processar_fila() -> bool:
@@ -98,6 +102,7 @@ func parar():
 		await get_tree().create_timer(delay_comando).timeout
 		em_delay = false
 		$AnimacaoDoRobo.stop()
+		$SomHelice.stop()
 		is_animating = false
 
 
@@ -121,6 +126,7 @@ func processa_fila() -> void:
 
 
 func preparar_para_execucao():
+	posicao_futura = position
 	match instrucao_em_execucao.comando.tipo:
 		Comando.TipoComando.MOVER_PARA_FRENTE:
 			mover_frente()
@@ -235,3 +241,11 @@ func _on_area_de_interacao_area_exited(area: Area2D) -> void:
 func _on_encaxes_mouse_exited() -> void:
 	if Global.esta_arrastando:
 		altera_visibilidade_paleta_de_comandos()
+
+
+func _on_area_de_deteccao_de_obstaculos_mouse_entered() -> void:
+	$HoverSound.play()
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

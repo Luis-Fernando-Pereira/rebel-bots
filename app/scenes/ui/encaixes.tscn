@@ -6,17 +6,11 @@
 [node name="Encaxes" type="Control"]
 layout_direction = 1
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -808.0
-offset_top = -416.0
-offset_right = -808.0
-offset_bottom = -416.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 56.0
 script = ExtResource("1_yhw12")
 
 [node name="ColorRect" type="ColorRect" parent="."]
